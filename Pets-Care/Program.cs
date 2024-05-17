@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using PetsCareCore.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<PetCareDbcontext>(option => option.UseMySQL(builder.Configuration.GetConnectionString("mysqlconnect")));
 
 var app = builder.Build();
 
