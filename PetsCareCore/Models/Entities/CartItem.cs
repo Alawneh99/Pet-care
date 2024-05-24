@@ -9,7 +9,7 @@ namespace PetsCareCore.Models.Entities
     public class CartItem
     {
         public int Id { get; set; }
-        public int CartId { get; set; }
-        public int ServiceId { get; set; }
+        public int? CartId { get; set; }
+        public int? ServiceId { get; set; }
     }
 }
