@@ -17,5 +17,7 @@ namespace PetsCareCore.Models.Entities
         public bool IsHaveDiscount { get; set; }
         public float DiscountAmount { get; set; }
         public string DiscountType { get; set; }
+        public int? CategoryID { get; set; }
+        public int? OrderId { get; set; }
     }
 }

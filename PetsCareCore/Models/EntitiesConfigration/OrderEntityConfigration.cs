@@ -20,6 +20,13 @@ namespace PetsCareCore.Models.EntitiesConfigration
             builder.Property(o => o.Date).IsRequired();
             builder.Property(o => o.Fee).HasColumnType("float");
             builder.Property(o => o.CustomerNote).HasMaxLength(1000);
+
+            //************************Relations*****************************
+
+            builder.HasMany<Item>()
+                   .WithOne()
+                   .HasForeignKey(l => l.OrderId)
+                   .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

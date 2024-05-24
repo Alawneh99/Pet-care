@@ -19,6 +19,28 @@ namespace PetsCareCore.Models.EntitiesConfigration
             builder.Property(u => u.Email).IsRequired().HasMaxLength(200);
             builder.Property(u => u.Phone).HasMaxLength(15);
             builder.Property(u => u.BirthDate).IsRequired();
+
+            //************************Relations*****************************
+
+            builder.HasMany<Cart>()
+                   .WithOne()
+                   .HasForeignKey(c => c.UserId)
+                   .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany<Pet>()
+                   .WithOne()
+                   .HasForeignKey(p => p.OwnerUserId)
+                   .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany<Login>()
+                   .WithOne()
+                   .HasForeignKey(l => l.UserId)
+                   .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany<Order>()
+                   .WithOne()
+                   .HasForeignKey(k => k.UserId)
+                   .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

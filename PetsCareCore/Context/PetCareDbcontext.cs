@@ -23,6 +23,12 @@ namespace PetsCareCore.Context
             modelBuilder.ApplyConfiguration(new LoginEntityConfigration());
             modelBuilder.ApplyConfiguration(new WishListEntityConfigration());
             modelBuilder.ApplyConfiguration(new PetEntityConfigration());
+            modelBuilder.ApplyConfiguration(new CartEntityConfigration());
+            modelBuilder.ApplyConfiguration(new CartItemEntityConfigration());
+            modelBuilder.ApplyConfiguration(new CategoryEntityConfigration());
+            modelBuilder.ApplyConfiguration(new ClinicEntityConfigration());
+            modelBuilder.ApplyConfiguration(new ClinicAppointmentEntityConfigration());
+            modelBuilder.ApplyConfiguration(new ServiceEntityConfigration());
         }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
@@ -30,6 +36,11 @@ namespace PetsCareCore.Context
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<WishList> WishLists { get; set; }
         public virtual DbSet<Pet> Pets { get; set; }
-
+        public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<CartItem> CartItems { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Clinic> Clinics { get; set; }
+        public virtual DbSet<ClinicAppointment> ClinicsAppointment { get; set;}
+        public virtual DbSet<Service> Services { get; set; }
     }
 }

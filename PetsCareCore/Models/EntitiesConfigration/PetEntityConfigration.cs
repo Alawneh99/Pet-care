@@ -20,6 +20,13 @@ namespace PetsCareCore.Models.EntitiesConfigration
             builder.Property(p => p.Image).HasMaxLength(200);
             builder.Property(p => p.Age).IsRequired();
             builder.Property(p => p.BirthDate).IsRequired();
+
+            //************************Relations*****************************
+
+            builder.HasMany<ClinicAppointment>()
+                   .WithOne()
+                   .HasForeignKey(l => l.PetId)
+                   .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
