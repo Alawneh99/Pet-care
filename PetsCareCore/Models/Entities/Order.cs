@@ -14,5 +14,6 @@ namespace PetsCareCore.Models.Entities
         public float Fee { get; set; }
         public string CustomerNote { get; set; }
         public int? UserId { get; set; }
+        public int? CartID { get; set; }
     }
 }

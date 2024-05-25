@@ -27,6 +27,11 @@ namespace PetsCareCore.Models.EntitiesConfigration
                    .WithOne()
                    .HasForeignKey(l => l.OrderId)
                    .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasOne<Cart>()
+                   .WithOne()
+                   .HasForeignKey<Order>(o => o.CartID)
+                   .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

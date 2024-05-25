@@ -15,8 +15,8 @@ namespace PetsCareCore.Models.EntitiesConfigration
         {
             builder.HasKey(p => p.Id);
             builder.Property(p => p.NickName).IsRequired().HasMaxLength(100);
-            builder.Property(p => p.Gender).IsRequired().HasMaxLength(10);
-            builder.Property(p => p.Type).IsRequired().HasMaxLength(100);
+            builder.Property(p => p.Gender).HasConversion<string>();
+            builder.Property(p => p.PetType).HasConversion<string>();
             builder.Property(p => p.Image).HasMaxLength(200);
             builder.Property(p => p.Age).IsRequired();
             builder.Property(p => p.BirthDate).IsRequired();

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace PetsCareCore.Models.Entities
 {
-    public class Category
+    public class UserRole
     {
         public int Id { get; set; }
-        public string Name { get; set; }    
-        public string? Image { get; set; }    
+        public string RoleName { get; set; }
     }
 }

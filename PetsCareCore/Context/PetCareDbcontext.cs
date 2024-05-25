@@ -29,6 +29,7 @@ namespace PetsCareCore.Context
             modelBuilder.ApplyConfiguration(new ClinicEntityConfigration());
             modelBuilder.ApplyConfiguration(new ClinicAppointmentEntityConfigration());
             modelBuilder.ApplyConfiguration(new ServiceEntityConfigration());
+            modelBuilder.ApplyConfiguration(new UserRoleEntityConfigration());
         }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
@@ -42,5 +43,6 @@ namespace PetsCareCore.Context
         public virtual DbSet<Clinic> Clinics { get; set; }
         public virtual DbSet<ClinicAppointment> ClinicsAppointment { get; set;}
         public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<UserRole> Roles { get; set; }
     }
 }
