@@ -26,6 +26,11 @@ namespace PetsCareCore.Models.EntitiesConfigration
                    .WithOne()
                    .HasForeignKey(l => l.ClinicId)
                    .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasOne<User>()
+               .WithOne()
+               .HasForeignKey<Clinic>(c => c.UserID)
+               .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

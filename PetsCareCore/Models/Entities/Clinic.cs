@@ -14,5 +14,6 @@ namespace PetsCareCore.Models.Entities
         public string Image { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public int? UserID { get; set; }
     }
 }
