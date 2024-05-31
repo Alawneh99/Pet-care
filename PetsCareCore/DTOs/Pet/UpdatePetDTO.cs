@@ -14,7 +14,7 @@ namespace PetsCareCore.DTOs.Pet
         public string PetType { get; set; }
         public string Image { get; set; }
         public int Age { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateOnly BirthDate { get; set; }
         public int? OwnerUserId { get; set; }
     }
 }
