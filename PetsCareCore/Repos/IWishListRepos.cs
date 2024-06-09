@@ -10,7 +10,7 @@ namespace PetsCareCore.Repos
     public interface IWishListRepos
     {
         Task<WishList> AddToWishList(WishList wishList);
-        Task<IEnumerable<WishList>> GetWishListByUserId(int userId);
+        Task<WishList> GetWishList(int wishListId);
         Task UpdateWishList(WishList wishList);
         Task RemoveFromWishList(int wishListId);
     }

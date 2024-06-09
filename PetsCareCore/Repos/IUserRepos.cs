@@ -9,13 +9,10 @@ namespace PetsCareCore.Repos
 {
     public interface IUserRepos
     {
-        public interface IUserRepository
-        {
+        
             Task<User> CreateUser(User user);
             Task<User> GetUserById(int userId);
             Task UpdateUser(User user);
             Task DeleteUser(int userId);
-        }
-
     }
 }

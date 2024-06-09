@@ -11,6 +11,5 @@ namespace PetsCareCore.Repos
     {
         Task<Login> GetLoginByUserName(string userName);
         Task<Login> GetLoginByUserId(int userId);
-        Task UpdateLogin(Login login);
     }
 }

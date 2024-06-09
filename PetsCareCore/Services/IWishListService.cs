@@ -10,7 +10,7 @@ namespace PetsCareCore.Services
     public interface IWishListService
     {
         Task<WishListDTO> AddToWishList(WishListDTO createWishListDTO);
-        Task<IEnumerable<UpdateWishListDTO>> GetWishList(int userId);
+        Task<UpdateWishListDTO> GetWishList(int wishListId);
         Task UpdateWishList(UpdateWishListDTO updateWishListDTO);
         Task RemoveFromWishList(int wishListId);
     }
