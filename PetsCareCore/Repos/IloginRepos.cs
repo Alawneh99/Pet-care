@@ -9,7 +9,8 @@ namespace PetsCareCore.Repos
 {
     public interface IloginRepos
     {
-        Task<Login> GetLoginByUserName(string userName);
+        Task<Login> GetLoginByEmail(string email);
         Task<Login> GetLoginByUserId(int userId);
+        Task UpdateLogin(Login login);
     }
 }

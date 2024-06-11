@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Crypto.Generators;
 using PetsCareCore.DTOs.Category;
 using PetsCareCore.DTOs.Clinic;
 using PetsCareCore.DTOs.ClinicAppointment;
@@ -777,5 +778,38 @@ namespace Pets_Care.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+
+        [HttpPost("ForgotPassword")]
+        public async Task<IActionResult> ForgotPassword([FromBody] RecoverPasswordDTO recoverPasswordDTO)
+        {
+            var result = await _loginService.RecoverPassword(recoverPasswordDTO);
+            if (!result)
+            {
+                return NotFound("Email not found.");
+            }
+
+            return Ok("Password reset link has been sent to your email.");
+        }
+
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDTO resetPasswordDTO)
+        {
+            var user = await _userService.GetUserByEmail(resetPasswordDTO.Email);
+            if (user == null || user.ResetPasswordToken != resetPasswordDTO.Token || user.ResetPasswordExpiry < DateTime.Now)
+            {
+                return BadRequest("Invalid or expired token.");
+            }
+
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(resetPasswordDTO.NewPassword); // Hash the password before storing it
+            user.ResetPasswordToken = null;
+            user.ResetPasswordExpiry = null;
+            await _userService.UpdateUser(user);
+
+            return Ok("Password has been reset successfully.");
+        }
+
+
+
     }
 }

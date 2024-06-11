@@ -19,6 +19,9 @@ namespace PetsCareCore.Models.EntitiesConfigration
             builder.Property(u => u.Email).IsRequired().HasMaxLength(200);
             builder.Property(u => u.Phone).HasMaxLength(15);
             builder.Property(u => u.BirthDate).IsRequired();
+            builder.Property(u => u.ResetPasswordToken).HasMaxLength(200).IsRequired(false);
+            builder.Property(u => u.ResetPasswordExpiry).IsRequired(false);
+            builder.Property(u => u.PasswordHash).IsRequired().HasMaxLength(200);
 
             //************************Relations*****************************
 

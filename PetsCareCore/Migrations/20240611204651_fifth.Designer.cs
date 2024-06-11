@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetsCareCore.Context;
 
@@ -10,9 +11,11 @@ using PetsCareCore.Context;
 namespace PetsCareCore.Migrations
 {
     [DbContext(typeof(PetCareDbcontext))]
-    partial class PetCareDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20240611204651_fifth")]
+    partial class fifth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -354,8 +357,8 @@ namespace PetsCareCore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime(6)");
+                    b.Property<DateOnly>("BirthDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()

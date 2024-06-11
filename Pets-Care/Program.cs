@@ -42,6 +42,8 @@ builder.Services.AddScoped<IServiceRepos, ServiceRepos>();
 
 builder.Services.AddScoped<IWishListService, WishListService>();
 builder.Services.AddScoped<IWishListRepos, WishListRepos>();
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

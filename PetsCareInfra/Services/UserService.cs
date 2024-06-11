@@ -72,6 +72,11 @@ namespace PetsCareInfra.Services
             };
         }
 
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _userRepository.GetUserByEmail(email);
+        }
+
         public async Task UpdateUser(UpdateUserDTO updateUserDTO)
         {
             var user = await _userRepository.GetUserById(updateUserDTO.Id);
@@ -88,6 +93,11 @@ namespace PetsCareInfra.Services
             user.ProfileImage = updateUserDTO.ProfileImage;
             user.UserRoleID = updateUserDTO.UserRoleID;
 
+            await _userRepository.UpdateUser(user);
+        }
+
+        public async Task UpdateUser(User user)
+        {
             await _userRepository.UpdateUser(user);
         }
     }

@@ -1,4 +1,5 @@
-﻿using PetsCareCore.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using PetsCareCore.Context;
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using System;
@@ -35,9 +36,22 @@ namespace PetsCareInfra.Repos
             }
         }
 
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
         public async Task<User> GetUserById(int userId)
         {
             return await _context.Users.FindAsync(userId);
+        }
+
+        public async Task SetPasswordResetToken(User user, string token, DateTime expiry)
+        {
+            user.ResetPasswordToken = token;
+            user.ResetPasswordExpiry = expiry;
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
         }
 
         public async Task UpdateUser(User user)
