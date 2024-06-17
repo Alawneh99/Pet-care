@@ -51,7 +51,13 @@ namespace Pets_Care.Controllers
             _wishListService = wishListService;
         }
 
-        // User operations
+        /// <summary>
+        /// Creates a new user.
+        /// </summary>
+        /// <param name="createUserDTO">The user data transfer object containing user details.</param>
+        /// <response code="200">Returns the newly created user.</response>
+        /// <response code="400">If the user data is null.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("user")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserDTO createUserDTO)
         {
@@ -71,6 +77,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a user by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to retrieve.</param>
+        /// <response code="200">Returns the user with the specified ID.</response>
+        /// <response code="404">If the user is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpGet("user/{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
@@ -89,6 +102,15 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing user.
+        /// </summary>
+        /// <param name="id">The ID of the user to update.</param>
+        /// <param name="updateUserDTO">The user data transfer object containing updated user details.</param>
+        /// <response code="204">Indicates that the user was successfully updated.</response>
+        /// <response code="400">If the user data is invalid or the ID does not match.</response>
+        /// <response code="404">If the user is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPut("user/{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserDTO updateUserDTO)
         {
@@ -114,6 +136,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes a user by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to delete.</param>
+        /// <response code="204">Indicates that the user was successfully deleted.</response>
+        /// <response code="404">If the user is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpDelete("user/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
@@ -134,7 +163,13 @@ namespace Pets_Care.Controllers
             }
         }
 
-        // Category operations
+        /// <summary>
+        /// Adds a new category.
+        /// </summary>
+        /// <param name="CategoryDTO">The category data transfer object containing category details.</param>
+        /// <response code="200">Returns the newly created category.</response>
+        /// <response code="400">If the category data is null.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("category")]
         public async Task<IActionResult> AddCategory([FromBody] CategoryDTO CategoryDTO)
         {
@@ -154,6 +189,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a category by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the category to retrieve.</param>
+        /// <response code="200">Returns the category with the specified ID.</response>
+        /// <response code="404">If the category is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpGet("category/{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
@@ -172,6 +214,15 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing category.
+        /// </summary>
+        /// <param name="id">The ID of the category to update.</param>
+        /// <param name="updateCategoryDTO">The category data transfer object containing updated category details.</param>
+        /// <response code="204">Indicates that the category was successfully updated.</response>
+        /// <response code="400">If the category data is invalid or the ID does not match.</response>
+        /// <response code="404">If the category is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPut("category/{id}")]
         public async Task<IActionResult> UpdateCategory(int id, [FromBody] UpdateCategoryDTO updateCategoryDTO)
         {
@@ -197,6 +248,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes a category by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the category to delete.</param>
+        /// <response code="204">Indicates that the category was successfully deleted.</response>
+        /// <response code="404">If the category is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpDelete("category/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
@@ -217,7 +275,13 @@ namespace Pets_Care.Controllers
             }
         }
 
-        // Clinic operations
+        /// <summary>
+        /// Adds a new clinic.
+        /// </summary>
+        /// <param name="ClinicDTO">The clinic data transfer object containing clinic details.</param>
+        /// <response code="200">Returns the newly created clinic.</response>
+        /// <response code="400">If the clinic data is null.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("clinic")]
         public async Task<IActionResult> AddClinic([FromBody] ClinicDTO ClinicDTO)
         {
@@ -237,6 +301,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a clinic by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the clinic to retrieve.</param>
+        /// <response code="200">Returns the clinic with the specified ID.</response>
+        /// <response code="404">If the clinic is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpGet("clinic/{id}")]
         public async Task<IActionResult> GetClinic(int id)
         {
@@ -255,6 +326,15 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing clinic.
+        /// </summary>
+        /// <param name="id">The ID of the clinic to update.</param>
+        /// <param name="updateClinicDTO">The clinic data transfer object containing updated clinic details.</param>
+        /// <response code="204">Indicates that the clinic was successfully updated.</response>
+        /// <response code="400">If the clinic data is invalid or the ID does not match.</response>
+        /// <response code="404">If the clinic is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPut("clinic/{id}")]
         public async Task<IActionResult> UpdateClinic(int id, [FromBody] UpdateClinicDTO updateClinicDTO)
         {
@@ -280,6 +360,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes a clinic by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the clinic to delete.</param>
+        /// <response code="204">Indicates that the clinic was successfully deleted.</response>
+        /// <response code="404">If the clinic is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpDelete("clinic/{id}")]
         public async Task<IActionResult> DeleteClinic(int id)
         {
@@ -300,7 +387,13 @@ namespace Pets_Care.Controllers
             }
         }
 
-        // Clinic Appointment operations
+        /// <summary>
+        /// Schedules a new clinic appointment.
+        /// </summary>
+        /// <param name="createAppointmentDTO">The appointment data transfer object containing appointment details.</param>
+        /// <response code="200">Returns the newly created appointment.</response>
+        /// <response code="400">If the appointment data is null.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("clinicappointment")]
         public async Task<IActionResult> ScheduleAppointment([FromBody] ClinicAppointmentDTO createAppointmentDTO)
         {
@@ -320,6 +413,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a clinic appointment by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the appointment to retrieve.</param>
+        /// <response code="200">Returns the appointment with the specified ID.</response>
+        /// <response code="404">If the appointment is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpGet("clinicappointment/{id}")]
         public async Task<IActionResult> GetAppointment(int id)
         {
@@ -338,6 +438,15 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing clinic appointment.
+        /// </summary>
+        /// <param name="id">The ID of the appointment to update.</param>
+        /// <param name="updateAppointmentDTO">The appointment data transfer object containing updated appointment details.</param>
+        /// <response code="204">Indicates that the appointment was successfully updated.</response>
+        /// <response code="400">If the appointment data is invalid or the ID does not match.</response>
+        /// <response code="404">If the appointment is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPut("clinicappointment/{id}")]
         public async Task<IActionResult> UpdateAppointment(int id, [FromBody] UpdateClinicAppointmentDTO updateAppointmentDTO)
         {
@@ -363,6 +472,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Cancels a clinic appointment by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the appointment to cancel.</param>
+        /// <response code="204">Indicates that the appointment was successfully canceled.</response>
+        /// <response code="404">If the appointment is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpDelete("clinicappointment/{id}")]
         public async Task<IActionResult> CancelAppointment(int id)
         {
@@ -383,7 +499,13 @@ namespace Pets_Care.Controllers
             }
         }
 
-        // Item operations
+        /// <summary>
+        /// Adds a new item.
+        /// </summary>
+        /// <param name="createItemDTO">The item data transfer object containing item details.</param>
+        /// <response code="200">Returns the newly created item.</response>
+        /// <response code="400">If the item data is null.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("item")]
         public async Task<IActionResult> AddItem([FromBody] ItemDTO createItemDTO)
         {
@@ -403,6 +525,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves an item by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the item to retrieve.</param>
+        /// <response code="200">Returns the item with the specified ID.</response>
+        /// <response code="404">If the item is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpGet("item/{id}")]
         public async Task<IActionResult> GetItem(int id)
         {
@@ -421,6 +550,15 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing item.
+        /// </summary>
+        /// <param name="id">The ID of the item to update.</param>
+        /// <param name="updateItemDTO">The item data transfer object containing updated item details.</param>
+        /// <response code="204">Indicates that the item was successfully updated.</response>
+        /// <response code="400">If the item data is invalid or the ID does not match.</response>
+        /// <response code="404">If the item is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPut("item/{id}")]
         public async Task<IActionResult> UpdateItem(int id, [FromBody] UpdateItemDTO updateItemDTO)
         {
@@ -446,6 +584,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes an item by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the item to delete.</param>
+        /// <response code="204">Indicates that the item was successfully deleted.</response>
+        /// <response code="404">If the item is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpDelete("item/{id}")]
         public async Task<IActionResult> DeleteItem(int id)
         {
@@ -466,7 +611,14 @@ namespace Pets_Care.Controllers
             }
         }
 
-        // Login operations
+        /// <summary>
+        /// Signs in a user.
+        /// </summary>
+        /// <param name="loginDTO">The login data transfer object containing login details.</param>
+        /// <response code="200">Indicates that the sign-in was successful.</response>
+        /// <response code="400">If the login data is null.</response>
+        /// <response code="401">If the username or password is incorrect.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("login")]
         public async Task<IActionResult> SignIn([FromBody] LoginDTO loginDTO)
         {
@@ -491,6 +643,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Signs out a user.
+        /// </summary>
+        /// <param name="userId">The ID of the user to sign out.</param>
+        /// <response code="200">Indicates that the sign-out was successful.</response>
+        /// <response code="404">If the user is not found or not logged in.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("logout/{userId}")]
         public async Task<IActionResult> SignOut(int userId)
         {
@@ -510,6 +669,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Initiates the password recovery process for the specified email.
+        /// </summary>
+        /// <param name="recoverPasswordDTO">The DTO containing the email for password recovery.</param>
+        /// <response code="200">Indicates that the recovery process was initiated.</response>
+        /// <response code="404">If the email is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("recoverpassword")]
         public async Task<IActionResult> RecoverPassword([FromBody] RecoverPasswordDTO recoverPasswordDTO)
         {
@@ -534,7 +700,13 @@ namespace Pets_Care.Controllers
             }
         }
 
-        // Pet operations
+        /// <summary>
+        /// Adds a new pet.
+        /// </summary>
+        /// <param name="createPetDTO">The pet data transfer object containing pet details.</param>
+        /// <response code="200">Returns the newly created pet.</response>
+        /// <response code="400">If the pet data is null.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("pet")]
         public async Task<IActionResult> AddPet([FromBody] CreatePetDTO createPetDTO)
         {
@@ -554,6 +726,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a pet by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the pet to retrieve.</param>
+        /// <response code="200">Returns the pet with the specified ID.</response>
+        /// <response code="404">If the pet is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpGet("pet/{id}")]
         public async Task<IActionResult> GetPet(int id)
         {
@@ -572,6 +751,15 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing pet.
+        /// </summary>
+        /// <param name="id">The ID of the pet to update.</param>
+        /// <param name="updatePetDTO">The pet data transfer object containing updated pet details.</param>
+        /// <response code="204">Indicates that the pet was successfully updated.</response>
+        /// <response code="400">If the pet data is invalid or the ID does not match.</response>
+        /// <response code="404">If the pet is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPut("pet/{id}")]
         public async Task<IActionResult> UpdatePet(int id, [FromBody] UpdatePetDTO updatePetDTO)
         {
@@ -597,6 +785,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes a pet by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the pet to delete.</param>
+        /// <response code="204">Indicates that the pet was successfully deleted.</response>
+        /// <response code="404">If the pet is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpDelete("pet/{id}")]
         public async Task<IActionResult> DeletePet(int id)
         {
@@ -617,7 +812,13 @@ namespace Pets_Care.Controllers
             }
         }
 
-        // Service operations
+        /// <summary>
+        /// Adds a new service.
+        /// </summary>
+        /// <param name="createServiceDTO">The service data transfer object containing service details.</param>
+        /// <response code="200">Returns the newly created service.</response>
+        /// <response code="400">If the service data is null.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("service")]
         public async Task<IActionResult> AddService([FromBody] ServiceDTO createServiceDTO)
         {
@@ -637,6 +838,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a service by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the service to retrieve.</param>
+        /// <response code="200">Returns the service with the specified ID.</response>
+        /// <response code="404">If the service is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpGet("service/{id}")]
         public async Task<IActionResult> GetService(int id)
         {
@@ -655,6 +863,15 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing service.
+        /// </summary>
+        /// <param name="id">The ID of the service to update.</param>
+        /// <param name="updateServiceDTO">The service data transfer object containing updated service details.</param>
+        /// <response code="204">Indicates that the service was successfully updated.</response>
+        /// <response code="400">If the service data is invalid or the ID does not match.</response>
+        /// <response code="404">If the service is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPut("service/{id}")]
         public async Task<IActionResult> UpdateService(int id, [FromBody] UpdateServiceDTO updateServiceDTO)
         {
@@ -680,6 +897,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes a service by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the service to delete.</param>
+        /// <response code="204">Indicates that the service was successfully deleted.</response>
+        /// <response code="404">If the service is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpDelete("service/{id}")]
         public async Task<IActionResult> DeleteService(int id)
         {
@@ -700,7 +924,13 @@ namespace Pets_Care.Controllers
             }
         }
 
-        // WishList operations
+        /// <summary>
+        /// Adds an item to the wishlist.
+        /// </summary>
+        /// <param name="createWishListDTO">The wishlist data transfer object containing wishlist details.</param>
+        /// <response code="200">Returns the newly created wishlist item.</response>
+        /// <response code="400">If the wishlist data is null.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("wishlist")]
         public async Task<IActionResult> AddToWishList([FromBody] WishListDTO createWishListDTO)
         {
@@ -720,6 +950,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves the wishlist for a user by their ID.
+        /// </summary>
+        /// <param name="userId">The ID of the user whose wishlist to retrieve.</param>
+        /// <response code="200">Returns the wishlist for the specified user.</response>
+        /// <response code="404">If the wishlist is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpGet("wishlist/{userId}")]
         public async Task<IActionResult> GetWishList(int userId)
         {
@@ -734,6 +971,15 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates an existing wishlist item.
+        /// </summary>
+        /// <param name="id">The ID of the wishlist item to update.</param>
+        /// <param name="updateWishListDTO">The wishlist data transfer object containing updated wishlist details.</param>
+        /// <response code="204">Indicates that the wishlist item was successfully updated.</response>
+        /// <response code="400">If the wishlist data is invalid or the ID does not match.</response>
+        /// <response code="404">If the wishlist item is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPut("wishlist/{id}")]
         public async Task<IActionResult> UpdateWishList(int id, [FromBody] UpdateWishListDTO updateWishListDTO)
         {
@@ -759,6 +1005,13 @@ namespace Pets_Care.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes an item from the wishlist by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the wishlist item to remove.</param>
+        /// <response code="204">Indicates that the wishlist item was successfully removed.</response>
+        /// <response code="404">If the wishlist item is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpDelete("wishlist/{id}")]
         public async Task<IActionResult> RemoveFromWishList(int id)
         {
@@ -779,7 +1032,13 @@ namespace Pets_Care.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Initiates the password recovery process for the specified email.
+        /// </summary>
+        /// <param name="recoverPasswordDTO">The DTO containing the email for password recovery.</param>
+        /// <response code="200">Indicates that the password reset link was sent successfully.</response>
+        /// <response code="404">If the email is not found.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("ForgotPassword")]
         public async Task<IActionResult> ForgotPassword([FromBody] RecoverPasswordDTO recoverPasswordDTO)
         {
@@ -792,6 +1051,13 @@ namespace Pets_Care.Controllers
             return Ok("Password reset link has been sent to your email.");
         }
 
+        /// <summary>
+        /// Resets the user's password using the provided token.
+        /// </summary>
+        /// <param name="resetPasswordDTO">The DTO containing the email, token, and new password.</param>
+        /// <response code="200">Indicates that the password was reset successfully.</response>
+        /// <response code="400">If the token is invalid or expired.</response>
+        /// <response code="500">If there is an internal server error.</response>
         [HttpPost("ResetPassword")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDTO resetPasswordDTO)
         {
@@ -808,8 +1074,5 @@ namespace Pets_Care.Controllers
 
             return Ok("Password has been reset successfully.");
         }
-
-
-
     }
 }
