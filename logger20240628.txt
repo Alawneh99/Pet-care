@@ -1,0 +1,521 @@
+2024-06-28 14:04:21.622 +03:00 [INF] Now listening on: https://localhost:7156
+2024-06-28 14:04:21.650 +03:00 [INF] Now listening on: http://localhost:5299
+2024-06-28 14:04:21.651 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-28 14:04:21.652 +03:00 [INF] Hosting environment: Development
+2024-06-28 14:04:21.652 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-06-28 14:04:24.769 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-06-28 14:04:25.118 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-06-28 14:04:25.125 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-06-28 14:04:25.134 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 359.5143ms
+2024-06-28 14:04:25.135 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 17.2889ms
+2024-06-28 14:04:25.210 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 84.2973ms
+2024-06-28 14:04:25.292 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-06-28 14:04:25.518 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 226.7030ms
+2024-06-28 14:04:58.084 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:04:58.104 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:04:58.164 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:05:01.320 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:05:01.576 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:05:02.735 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code MethodNotAllowed
+2024-06-28 14:05:02.885 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 4716.249ms
+2024-06-28 14:05:02.886 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:05:02.889 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code MethodNotAllowed
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 49
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:05:02.935 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 4849.8075ms
+2024-06-28 14:11:49.372 +03:00 [INF] Now listening on: https://localhost:7156
+2024-06-28 14:11:49.401 +03:00 [INF] Now listening on: http://localhost:5299
+2024-06-28 14:11:49.402 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-28 14:11:49.402 +03:00 [INF] Hosting environment: Development
+2024-06-28 14:11:49.402 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-06-28 14:11:52.103 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-06-28 14:11:52.653 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-06-28 14:11:52.653 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-06-28 14:11:52.664 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 561.1346ms
+2024-06-28 14:11:52.681 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 28.2285ms
+2024-06-28 14:11:52.720 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.8618ms
+2024-06-28 14:11:52.815 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-06-28 14:11:52.959 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 144.8642ms
+2024-06-28 14:12:10.029 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:12:10.065 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:12:10.106 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:12:12.234 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:12:12.537 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:12:21.219 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code MethodNotAllowed
+2024-06-28 14:12:21.369 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 11256.4625ms
+2024-06-28 14:12:21.375 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:12:21.379 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code MethodNotAllowed
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 49
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:12:21.435 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 11406.4144ms
+2024-06-28 14:23:41.569 +03:00 [INF] Now listening on: https://localhost:7156
+2024-06-28 14:23:41.589 +03:00 [INF] Now listening on: http://localhost:5299
+2024-06-28 14:23:41.591 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-28 14:23:41.591 +03:00 [INF] Hosting environment: Development
+2024-06-28 14:23:41.591 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-06-28 14:23:43.338 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-06-28 14:23:43.642 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 306.7006ms
+2024-06-28 14:23:43.652 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-06-28 14:23:43.652 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-06-28 14:23:43.664 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 11.9068ms
+2024-06-28 14:23:43.727 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 75.4555ms
+2024-06-28 14:23:43.784 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-06-28 14:23:43.917 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 132.7391ms
+2024-06-28 14:23:58.821 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:23:58.836 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:23:58.865 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:24:00.915 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:24:01.195 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:24:02.020 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code Unauthorized
+2024-06-28 14:24:02.167 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 3298.5536ms
+2024-06-28 14:24:02.169 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:24:02.172 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code Unauthorized
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClient.ExecuteAsync(RestRequest request, CancellationToken cancellationToken)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 56
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:24:02.251 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 3429.5963ms
+2024-06-28 14:27:30.710 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:27:30.723 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:27:30.724 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:27:30.861 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:27:30.885 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:27:31.297 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code Unauthorized
+2024-06-28 14:27:31.475 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 750.1109ms
+2024-06-28 14:27:31.475 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:27:31.477 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code Unauthorized
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClient.ExecuteAsync(RestRequest request, CancellationToken cancellationToken)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 56
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:27:31.486 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 772.3457ms
+2024-06-28 14:27:46.516 +03:00 [INF] Now listening on: https://localhost:7156
+2024-06-28 14:27:46.540 +03:00 [INF] Now listening on: http://localhost:5299
+2024-06-28 14:27:46.543 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-28 14:27:46.544 +03:00 [INF] Hosting environment: Development
+2024-06-28 14:27:46.544 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-06-28 14:27:48.310 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-06-28 14:27:48.570 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 260.7337ms
+2024-06-28 14:27:48.576 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-06-28 14:27:48.576 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-06-28 14:27:48.585 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 9.3506ms
+2024-06-28 14:27:48.643 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.8322ms
+2024-06-28 14:27:48.836 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-06-28 14:27:48.999 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 163.2322ms
+2024-06-28 14:28:09.329 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:28:09.372 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:28:09.419 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:28:11.532 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:28:11.769 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:28:12.658 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code UnprocessableEntity
+2024-06-28 14:28:12.769 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 3346.4205ms
+2024-06-28 14:28:12.771 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:28:12.774 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code UnprocessableEntity
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClient.ExecuteAsync(RestRequest request, CancellationToken cancellationToken)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 56
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:28:12.798 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 3469.7223ms
+2024-06-28 14:28:58.665 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:28:58.683 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:28:58.684 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:28:58.752 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:28:58.767 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:28:59.166 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code UnprocessableEntity
+2024-06-28 14:28:59.244 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 560.2687ms
+2024-06-28 14:28:59.245 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:28:59.247 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code UnprocessableEntity
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClient.ExecuteAsync(RestRequest request, CancellationToken cancellationToken)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 56
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:28:59.252 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 586.6649ms
+2024-06-28 14:29:00.754 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:29:00.755 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:29:00.755 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:29:00.926 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:29:00.937 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:29:01.196 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code UnprocessableEntity
+2024-06-28 14:29:01.267 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 512.1008ms
+2024-06-28 14:29:01.268 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:29:01.270 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code UnprocessableEntity
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClient.ExecuteAsync(RestRequest request, CancellationToken cancellationToken)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 56
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:29:01.275 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 521.1842ms
+2024-06-28 14:57:25.586 +03:00 [INF] Now listening on: https://localhost:7156
+2024-06-28 14:57:25.627 +03:00 [INF] Now listening on: http://localhost:5299
+2024-06-28 14:57:25.631 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-28 14:57:25.631 +03:00 [INF] Hosting environment: Development
+2024-06-28 14:57:25.631 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-06-28 14:57:29.589 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-06-28 14:57:30.294 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-06-28 14:57:30.294 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-06-28 14:57:30.352 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 733.5771ms
+2024-06-28 14:57:30.353 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 58.4944ms
+2024-06-28 14:57:30.488 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 194.3280ms
+2024-06-28 14:57:30.539 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-06-28 14:57:30.801 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 261.8303ms
+2024-06-28 14:57:54.991 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:57:55.010 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:57:55.068 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:57:58.350 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:57:58.756 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:57:59.595 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code Unauthorized
+2024-06-28 14:57:59.771 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 4696.6368ms
+2024-06-28 14:57:59.776 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:57:59.785 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code Unauthorized
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClient.ExecuteAsync(RestRequest request, CancellationToken cancellationToken)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 56
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:57:59.828 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 4836.8531ms
+2024-06-28 14:59:09.475 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 14:59:09.485 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:59:09.486 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 14:59:27.189 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 14:59:27.218 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 14:59:27.578 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code Unauthorized
+2024-06-28 14:59:27.746 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 18259.2547ms
+2024-06-28 14:59:27.747 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 14:59:27.749 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code Unauthorized
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClient.ExecuteAsync(RestRequest request, CancellationToken cancellationToken)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 56
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 14:59:27.754 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 18278.7550ms
+2024-06-28 14:59:50.598 +03:00 [INF] Now listening on: https://localhost:7156
+2024-06-28 14:59:50.693 +03:00 [INF] Now listening on: http://localhost:5299
+2024-06-28 14:59:50.702 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-28 14:59:50.704 +03:00 [INF] Hosting environment: Development
+2024-06-28 14:59:50.705 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-06-28 14:59:51.699 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-06-28 14:59:52.080 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 383.5927ms
+2024-06-28 14:59:52.085 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-06-28 14:59:52.085 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-06-28 14:59:52.117 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 31.7909ms
+2024-06-28 14:59:52.163 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 78.0110ms
+2024-06-28 14:59:52.214 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-06-28 14:59:52.459 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 245.4507ms
+2024-06-28 15:00:12.600 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-06-28 15:00:12.621 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 15:00:12.661 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 15:00:15.251 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 15:00:15.682 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 15:00:16.287 +03:00 [ERR] Error sending email to alawnehosama099@gmail.com: Request failed with status code UnprocessableEntity
+2024-06-28 15:00:16.443 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 3778.3844ms
+2024-06-28 15:00:16.444 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 15:00:16.448 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code UnprocessableEntity
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClient.ExecuteAsync(RestRequest request, CancellationToken cancellationToken)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 56
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 15:00:16.487 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 500 - text/plain;+charset=utf-8 3887.0807ms
+2024-06-28 15:07:40.595 +03:00 [INF] Now listening on: https://localhost:7156
+2024-06-28 15:07:40.614 +03:00 [INF] Now listening on: http://localhost:5299
+2024-06-28 15:07:40.616 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-28 15:07:40.617 +03:00 [INF] Hosting environment: Development
+2024-06-28 15:07:40.617 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-06-28 15:07:41.328 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-06-28 15:07:41.631 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 306.4902ms
+2024-06-28 15:07:41.650 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-06-28 15:07:41.650 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-06-28 15:07:41.662 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 11.8430ms
+2024-06-28 15:07:41.698 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.4063ms
+2024-06-28 15:07:41.733 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-06-28 15:07:41.872 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 139.0587ms
+2024-06-28 15:08:01.225 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 39
+2024-06-28 15:08:01.248 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 15:08:01.309 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-06-28 15:08:03.463 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-06-28 15:08:03.821 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-06-28 15:08:03.920 +03:00 [INF] Request body: {
+  "from": {
+    "email": "trial-neqvygmwn0540p7w.mlsender.net",
+    "name": "Your Name"
+  },
+  "to": [
+    {
+      "email": "jane.smith@example.com",
+      "name": "Recipient"
+    }
+  ],
+  "subject": "Reset Password",
+  "html": "<p>This is the HTML content</p>",
+  "text": "Please reset your password by clicking <a href='https://yourdomain.com/User/ResetPassword?token=b04f6935-61d8-447a-bc85-736823694798'>here</a>"
+}
+2024-06-28 15:08:10.505 +03:00 [ERR] Error sending email to jane.smith@example.com: Request failed with status code UnprocessableEntity
+2024-06-28 15:08:10.645 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 9332.1874ms
+2024-06-28 15:08:10.646 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-06-28 15:08:10.651 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Request failed with status code UnprocessableEntity
+   at RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   at RestSharp.RestClientExtensions.PostAsync(IRestClient client, RestRequest request, CancellationToken cancellationToken)
+   at PetsCareInfra.Services.EmailSender.SendEmailAsync(String email, String subject, String message) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\EmailSender.cs:line 63
+   at PetsCareInfra.Services.LoginService.RecoverPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\LoginService.cs:line 37
+   at Pets_Care.Controllers.UserController.ForgotPassword(RecoverPasswordDTO recoverPasswordDTO) in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 1045
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-06-28 15:08:10.684 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 39 - 500 - text/plain;+charset=utf-8 9459.6684ms
