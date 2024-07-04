@@ -66,7 +66,6 @@ builder.Services.AddScoped<IServiceRepos, ServiceRepos>();
 builder.Services.AddScoped<IWishListService, WishListService>();
 builder.Services.AddScoped<IWishListRepos, WishListRepos>();
 
-builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 builder.Services.AddSwaggerGen(options =>
 {

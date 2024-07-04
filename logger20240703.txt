@@ -1,0 +1,86 @@
+2024-07-03 23:10:28.443 +03:00 [INF] Now listening on: https://localhost:7156
+2024-07-03 23:10:28.471 +03:00 [INF] Now listening on: http://localhost:5299
+2024-07-03 23:10:28.473 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-03 23:10:28.473 +03:00 [INF] Hosting environment: Development
+2024-07-03 23:10:28.473 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-07-03 23:10:31.063 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-07-03 23:10:31.702 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 645.7359ms
+2024-07-03 23:10:31.710 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-07-03 23:10:31.711 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-07-03 23:10:31.734 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 24.2683ms
+2024-07-03 23:10:31.950 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 238.6586ms
+2024-07-03 23:10:32.029 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-07-03 23:10:32.517 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 487.9085ms
+2024-07-03 23:11:14.756 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-07-03 23:11:14.773 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-07-03 23:11:14.846 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-07-03 23:11:37.302 +03:00 [INF] Executed DbCommand (32ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-07-03 23:11:37.742 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-07-03 23:13:33.374 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-07-03 23:13:33.392 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 138534.5272ms
+2024-07-03 23:13:33.406 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-07-03 23:13:33.446 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 200 - text/plain;+charset=utf-8 138689.9792ms
+2024-07-03 23:18:02.390 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ResetPassword application/json 120
+2024-07-03 23:18:02.404 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ResetPassword (Pets-Care)'
+2024-07-03 23:18:02.414 +03:00 [INF] Route matched with {action = "ResetPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ResetPassword(PetsCareCore.DTOs.Login.ResetPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-07-03 23:18:02.723 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-07-03 23:18:03.304 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-07-03 23:18:03.306 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-07-03 23:18:03.306 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ResetPassword (Pets-Care) in 890.3977ms
+2024-07-03 23:18:03.307 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ResetPassword (Pets-Care)'
+2024-07-03 23:18:03.307 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ResetPassword application/json 120 - 200 - text/plain;+charset=utf-8 917.0640ms
+2024-07-03 23:19:07.759 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 37
+2024-07-03 23:19:07.760 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-07-03 23:19:07.772 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-07-03 23:19:07.948 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-07-03 23:19:07.972 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-07-03 23:20:48.077 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-07-03 23:20:48.078 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 100304.7065ms
+2024-07-03 23:20:48.078 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-07-03 23:20:48.079 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 37 - 200 - text/plain;+charset=utf-8 100319.3360ms
+2024-07-03 23:34:52.541 +03:00 [INF] Now listening on: https://localhost:7156
+2024-07-03 23:34:52.574 +03:00 [INF] Now listening on: http://localhost:5299
+2024-07-03 23:34:52.576 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-03 23:34:52.577 +03:00 [INF] Hosting environment: Development
+2024-07-03 23:34:52.577 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-07-03 23:34:56.143 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-07-03 23:34:56.527 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-07-03 23:34:56.529 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 387.1463ms
+2024-07-03 23:34:56.529 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-07-03 23:34:56.548 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 21.6109ms
+2024-07-03 23:34:56.593 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 63.8077ms
+2024-07-03 23:34:56.647 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-07-03 23:34:56.862 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 215.3466ms
+2024-07-03 23:35:22.405 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42
+2024-07-03 23:35:22.422 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-07-03 23:35:22.487 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-07-03 23:35:25.459 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-07-03 23:35:25.896 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-07-03 23:37:06.178 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-07-03 23:37:06.199 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 103696.4852ms
+2024-07-03 23:37:06.200 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-07-03 23:37:06.214 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 42 - 200 - text/plain;+charset=utf-8 103809.1895ms

@@ -4,7 +4,10 @@ using PetsCareCore.Services;
 using PetsCareInfra.Repos;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,13 +17,13 @@ namespace PetsCareInfra.Services
     {
         private readonly IloginRepos _loginRepository;
         private readonly IUserRepos _userRepository;
-        private readonly IEmailSender _emailSender;
+        
 
-        public LoginService(IloginRepos loginRepository, IUserRepos userRepository, IEmailSender emailSender)
+        public LoginService(IloginRepos loginRepository, IUserRepos userRepository)
         {
             _loginRepository = loginRepository;
             _userRepository = userRepository;
-            _emailSender = emailSender;
+            
         }
         public async Task<bool> RecoverPassword(RecoverPasswordDTO recoverPasswordDTO)
         {
@@ -33,13 +36,42 @@ namespace PetsCareInfra.Services
             var token = Guid.NewGuid().ToString();
             await _userRepository.SetPasswordResetToken(user, token, DateTime.Now.AddHours(1));
 
-            var callbackUrl = $"https://yourdomain.com/User/ResetPassword?token={token}";
-            await _emailSender.SendEmailAsync(user.Email, "Reset Password",
-                $"Please reset your password by clicking <a href='{callbackUrl}'>here</a>");
+            SendOtpViaEmail(user.Email, token);
 
             return true;
         }
+        public static void SendOtpViaEmail(string email, string code)
+        {
+            // Create a new instance of MailMessage class
+            MailMessage message = new MailMessage();
 
+            // Set subject of the message, body and sender information
+            message.Subject = "Verification Code";
+            message.Body = "Use this Following Code  \n " + code + "\nto Confirm Your Operation. Kindly remember it's valid for 4 minutes since now.";
+            message.From = new MailAddress("PetsCare8899@outlook.com", "Pets Care"); // Remove the third parameter
+
+            // Add To recipients
+            message.To.Add(new MailAddress(email, "Recipient 1")); // Remove the third parameter
+
+            // Create an instance of SmtpClient class
+            SmtpClient client = new SmtpClient
+            {
+                Host = "smtp.office365.com",
+                Port = 587,
+                Credentials = new NetworkCredential("PetsCare8899@outlook.com", "Osa&1234"),
+                EnableSsl = true,
+            };
+
+            try
+            {
+                // Send this email
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.ToString());
+            }
+        }
         public async Task<bool> SignIn(LoginDTO loginDTO)
         {
             var login = await _loginRepository.GetLoginByEmail(loginDTO.Email);
