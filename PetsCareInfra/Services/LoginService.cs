@@ -40,7 +40,7 @@ namespace PetsCareInfra.Services
 
             return true;
         }
-        public static void SendOtpViaEmail(string email, string code)
+        public async Task SendOtpViaEmail(string email, string code)
         {
             // Create a new instance of MailMessage class
             MailMessage message = new MailMessage();
@@ -65,7 +65,7 @@ namespace PetsCareInfra.Services
             try
             {
                 // Send this email
-                client.Send(message);
+                 await client.SendMailAsync(message);
             }
             catch (Exception ex)
             {

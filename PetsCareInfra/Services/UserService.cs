@@ -3,6 +3,7 @@ using PetsCareCore.DTOs.User;
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using PetsCareCore.Services;
+using PetsCareInfra.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,23 @@ namespace PetsCareInfra.Services
         public async Task DeleteUser(int userId)
         {
             await _userRepository.DeleteUser(userId);
+        }
+
+        public async Task<IEnumerable<UpdateUserDTO>> GetAllUsers()
+        {
+            var users = await _userRepository.GetAllUsers();
+            return users.Select(user => new UpdateUserDTO
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Phone = user.Phone,
+                BirthDate = user.BirthDate,
+                ProfileImage = user.ProfileImage,
+                UserRoleID = user.UserRoleID
+            });
+
         }
 
         public async Task<UpdateUserDTO> GetUser(int userId)

@@ -13,5 +13,6 @@ namespace PetsCareCore.Repos
         Task<Pet> GetPetById(int petId);
         Task UpdatePet(Pet pet);
         Task DeletePet(int petId);
+        Task<IEnumerable<Pet>> GetAllPets();
     }
 }

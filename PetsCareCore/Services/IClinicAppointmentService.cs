@@ -13,5 +13,6 @@ namespace PetsCareCore.Services
         Task<UpdateClinicAppointmentDTO> GetAppointment(int appointmentId);
         Task UpdateAppointment(UpdateClinicAppointmentDTO updateAppointmentDTO);
         Task CancelAppointment(int appointmentId);
+        Task<IEnumerable<UpdateClinicAppointmentDTO>> GetAllAppointments();
     }
 }

@@ -13,5 +13,6 @@ namespace PetsCareCore.Repos
         Task<Clinic> GetClinicById(int clinicId);
         Task UpdateClinic(Clinic clinic);
         Task DeleteClinic(int clinicId);
+        Task<IEnumerable<Clinic>> GetAllClinics();
     }
 }

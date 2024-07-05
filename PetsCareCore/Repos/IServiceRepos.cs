@@ -13,5 +13,6 @@ namespace PetsCareCore.Repos
         Task<Service> GetServiceById(int serviceId);
         Task UpdateService(Service service);
         Task DeleteService(int serviceId);
+        Task<IEnumerable<Service>> GetAllServices();
     }
 }

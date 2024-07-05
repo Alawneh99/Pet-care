@@ -2,6 +2,7 @@
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using PetsCareCore.Services;
+using PetsCareInfra.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,21 @@ namespace PetsCareInfra.Services
         public async Task DeleteClinic(int clinicId)
         {
             await _clinicRepository.DeleteClinic(clinicId);
+        }
+
+        public async Task<IEnumerable<UpdateClinicDTO>> GetAllClinics()
+        {
+            var clinics = await _clinicRepository.GetAllClinics();
+            return clinics.Select(clinic => new UpdateClinicDTO
+            {
+                Id = clinic.Id,
+                Name = clinic.Name,
+                Bio = clinic.Bio,
+                Image = clinic.Image,
+                Email = clinic.Email,
+                Phone = clinic.Phone,
+                UserID = clinic.UserID
+            });
         }
 
         public async Task<UpdateClinicDTO> GetClinic(int clinicId)

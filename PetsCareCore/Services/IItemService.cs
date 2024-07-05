@@ -13,5 +13,6 @@ namespace PetsCareCore.Services
         Task<UpdateItemDTO> GetItem(int itemId);
         Task UpdateItem(UpdateItemDTO updateItemDTO);
         Task DeleteItem(int itemId);
+        Task<IEnumerable<UpdateItemDTO>> GetAllItems();
     }
 }

@@ -16,5 +16,6 @@ namespace PetsCareCore.Repos
             Task UpdateUser(User user);
             Task DeleteUser(int userId);
             Task SetPasswordResetToken(User user, string token, DateTime expiry);
+            Task<IEnumerable<User>> GetAllUsers();
     }
 }

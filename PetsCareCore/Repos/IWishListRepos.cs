@@ -13,5 +13,6 @@ namespace PetsCareCore.Repos
         Task<WishList> GetWishList(int wishListId);
         Task UpdateWishList(WishList wishList);
         Task RemoveFromWishList(int wishListId);
+        Task<IEnumerable<WishList>> GetAllWishLists();
     }
 }

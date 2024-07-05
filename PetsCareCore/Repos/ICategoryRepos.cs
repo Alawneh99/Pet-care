@@ -13,5 +13,6 @@ namespace PetsCareCore.Repos
         Task<Category> GetCategoryById(int categoryId);
         Task UpdateCategory(Category category);
         Task DeleteCategory(int categoryId);
+        Task<IEnumerable<Category>> GetAllCategories();
     }
 }

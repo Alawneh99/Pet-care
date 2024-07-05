@@ -13,5 +13,6 @@ namespace PetsCareCore.Repos
         Task<ClinicAppointment> GetAppointmentById(int appointmentId);
         Task UpdateAppointment(ClinicAppointment appointment);
         Task CancelAppointment(int appointmentId);
+        Task<IEnumerable<ClinicAppointment>> GetAllAppointments();
     }
 }

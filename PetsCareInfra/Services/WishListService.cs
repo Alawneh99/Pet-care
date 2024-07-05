@@ -2,6 +2,7 @@
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using PetsCareCore.Services;
+using PetsCareInfra.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,17 @@ namespace PetsCareInfra.Services
                 ItemName = createdWishList.ItemName,
                 ItemImage = createdWishList.ItemImage
             };
+        }
+
+        public async Task<IEnumerable<UpdateWishListDTO>> GetAllWishLists()
+        {
+            var wishLists = await _wishListRepository.GetAllWishLists();
+            return wishLists.Select(wishList => new UpdateWishListDTO
+            {
+                Id = wishList.Id,
+                ItemName = wishList.ItemName,
+                ItemImage = wishList.ItemImage
+            });
         }
 
         public async Task<UpdateWishListDTO> GetWishList(int wishlistId)

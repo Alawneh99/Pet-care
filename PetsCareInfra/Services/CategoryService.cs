@@ -41,6 +41,17 @@ namespace PetsCareInfra.Services
             await _categoryRepository.DeleteCategory(categoryId);
         }
 
+        public async Task<IEnumerable<UpdateCategoryDTO>> GetAllCategories()
+        {
+            var categories = await _categoryRepository.GetAllCategories();
+            return categories.Select(category => new UpdateCategoryDTO
+            {
+                Id = category.Id,
+                Name = category.Name,
+                Image = category.Image
+            });
+        }
+
         public async Task<UpdateCategoryDTO> GetCategory(int categoryId)
         {
             var category = await _categoryRepository.GetCategoryById(categoryId);

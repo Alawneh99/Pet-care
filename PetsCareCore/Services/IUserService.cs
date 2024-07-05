@@ -17,5 +17,6 @@ namespace PetsCareCore.Services
         Task UpdateUser(User user);
         Task DeleteUser(int userId);
         Task<User> GetUserByEmail(string email);
+        Task<IEnumerable<UpdateUserDTO>> GetAllUsers();
     }
 }

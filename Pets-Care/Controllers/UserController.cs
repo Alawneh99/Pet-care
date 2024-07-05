@@ -78,6 +78,18 @@ namespace Pets_Care.Controllers
         }
 
         /// <summary>
+        /// Retrieves all users.
+        /// </summary>
+        /// <response code="200">Returns a list of users.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        [HttpGet("users")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _userService.GetAllUsers();
+            return Ok(users);
+        }
+
+        /// <summary>
         /// Retrieves a user by their ID.
         /// </summary>
         /// <param name="id">The ID of the user to retrieve.</param>
@@ -187,6 +199,18 @@ namespace Pets_Care.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// Retrieves all categories.
+        /// </summary>
+        /// <response code="200">Returns a list of categories.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        [HttpGet("categories")]
+        public async Task<IActionResult> GetAllCategories()
+        {
+            var categories = await _categoryService.GetAllCategories();
+            return Ok(categories);
         }
 
         /// <summary>
@@ -302,6 +326,18 @@ namespace Pets_Care.Controllers
         }
 
         /// <summary>
+        /// Retrieves all clinics.
+        /// </summary>
+        /// <response code="200">Returns a list of clinics.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        [HttpGet("clinics")]
+        public async Task<IActionResult> GetAllClinics()
+        {
+            var clinics = await _clinicService.GetAllClinics();
+            return Ok(clinics);
+        }
+
+        /// <summary>
         /// Retrieves a clinic by its ID.
         /// </summary>
         /// <param name="id">The ID of the clinic to retrieve.</param>
@@ -414,6 +450,18 @@ namespace Pets_Care.Controllers
         }
 
         /// <summary>
+        /// Retrieves all clinic appointments.
+        /// </summary>
+        /// <response code="200">Returns a list of clinic appointments.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        [HttpGet("appointments")]
+        public async Task<IActionResult> GetAllAppointments()
+        {
+            var appointments = await _clinicAppointmentService.GetAllAppointments();
+            return Ok(appointments);
+        }
+
+        /// <summary>
         /// Retrieves a clinic appointment by its ID.
         /// </summary>
         /// <param name="id">The ID of the appointment to retrieve.</param>
@@ -523,6 +571,18 @@ namespace Pets_Care.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// Retrieves all items.
+        /// </summary>
+        /// <response code="200">Returns a list of items.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        [HttpGet("items")]
+        public async Task<IActionResult> GetAllItems()
+        {
+            var items = await _itemService.GetAllItems();
+            return Ok(items);
         }
 
         /// <summary>
@@ -670,37 +730,6 @@ namespace Pets_Care.Controllers
         }
 
         /// <summary>
-        /// Initiates the password recovery process for the specified email.
-        /// </summary>
-        /// <param name="recoverPasswordDTO">The DTO containing the email for password recovery.</param>
-        /// <response code="200">Indicates that the recovery process was initiated.</response>
-        /// <response code="404">If the email is not found.</response>
-        /// <response code="500">If there is an internal server error.</response>
-        [HttpPost("recoverpassword")]
-        public async Task<IActionResult> RecoverPassword([FromBody] RecoverPasswordDTO recoverPasswordDTO)
-        {
-            if (recoverPasswordDTO == null)
-            {
-                return BadRequest("Recovery data is null.");
-            }
-
-            try
-            {
-                var result = await _loginService.RecoverPassword(recoverPasswordDTO);
-                if (!result)
-                {
-                    return NotFound("User not found.");
-                }
-
-                return Ok("Recovery process initiated.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
-
-        /// <summary>
         /// Adds a new pet.
         /// </summary>
         /// <param name="createPetDTO">The pet data transfer object containing pet details.</param>
@@ -724,6 +753,18 @@ namespace Pets_Care.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// Retrieves all pets.
+        /// </summary>
+        /// <response code="200">Returns a list of pets.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        [HttpGet("pets")]
+        public async Task<IActionResult> GetAllPets()
+        {
+            var pets = await _petService.GetAllPets();
+            return Ok(pets);
         }
 
         /// <summary>
@@ -839,6 +880,18 @@ namespace Pets_Care.Controllers
         }
 
         /// <summary>
+        /// Retrieves all services.
+        /// </summary>
+        /// <response code="200">Returns a list of services.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        [HttpGet("services")]
+        public async Task<IActionResult> GetAllServices()
+        {
+            var services = await _serviceService.GetAllServices();
+            return Ok(services);
+        }
+
+        /// <summary>
         /// Retrieves a service by its ID.
         /// </summary>
         /// <param name="id">The ID of the service to retrieve.</param>
@@ -948,6 +1001,18 @@ namespace Pets_Care.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// Retrieves all wishlists.
+        /// </summary>
+        /// <response code="200">Returns a list of wishlists.</response>
+        /// <response code="500">If there is an internal server error.</response>
+        [HttpGet("wishlists")]
+        public async Task<IActionResult> GetAllWishLists()
+        {
+            var wishLists = await _wishListService.GetAllWishLists();
+            return Ok(wishLists);
         }
 
         /// <summary>
@@ -1067,7 +1132,7 @@ namespace Pets_Care.Controllers
                 return BadRequest("Invalid or expired token.");
             }
 
-            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(resetPasswordDTO.NewPassword); // Hash the password before storing it
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(resetPasswordDTO.NewPassword); 
             user.ResetPasswordToken = null;
             user.ResetPasswordExpiry = null;
             await _userService.UpdateUser(user);

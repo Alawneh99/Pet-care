@@ -2,6 +2,7 @@
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using PetsCareCore.Services;
+using PetsCareInfra.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +45,20 @@ namespace PetsCareInfra.Services
         public async Task DeleteService(int serviceId)
         {
             await _serviceRepository.DeleteService(serviceId);
+        }
+
+        public async Task<IEnumerable<UpdateServiceDTO>> GetAllServices()
+        {
+            var services = await _serviceRepository.GetAllServices();
+            return services.Select(service => new UpdateServiceDTO
+            {
+                Id = service.Id,
+                Name = service.Name,
+                Description = service.Description,
+                Price = service.Price,
+                Duration = service.Duration,
+                Image = service.Image
+            });
         }
 
         public async Task<UpdateServiceDTO> GetService(int serviceId)

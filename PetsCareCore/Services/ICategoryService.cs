@@ -13,5 +13,6 @@ namespace PetsCareCore.Services
         Task<UpdateCategoryDTO> GetCategory(int categoryId);
         Task UpdateCategory(UpdateCategoryDTO updateCategoryDTO);
         Task DeleteCategory(int categoryId);
+        Task<IEnumerable<UpdateCategoryDTO>> GetAllCategories();
     }
 }

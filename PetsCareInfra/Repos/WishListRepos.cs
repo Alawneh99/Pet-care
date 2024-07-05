@@ -1,4 +1,5 @@
-﻿using PetsCareCore.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using PetsCareCore.Context;
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using PetsCareCore.Services;
@@ -25,6 +26,11 @@ namespace PetsCareInfra.Repos
             _context.WishLists.Add(wishList);
             await _context.SaveChangesAsync();
             return wishList;
+        }
+
+        public async Task<IEnumerable<WishList>> GetAllWishLists()
+        {
+            return await _context.WishLists.ToListAsync();
         }
 
         public async Task<WishList> GetWishList(int wishListId)

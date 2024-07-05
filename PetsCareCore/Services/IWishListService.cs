@@ -13,5 +13,6 @@ namespace PetsCareCore.Services
         Task<UpdateWishListDTO> GetWishList(int wishListId);
         Task UpdateWishList(UpdateWishListDTO updateWishListDTO);
         Task RemoveFromWishList(int wishListId);
+        Task<IEnumerable<UpdateWishListDTO>> GetAllWishLists();
     }
 }

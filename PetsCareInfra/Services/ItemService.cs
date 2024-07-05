@@ -2,6 +2,7 @@
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using PetsCareCore.Services;
+using PetsCareInfra.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,25 @@ namespace PetsCareInfra.Services
         public Task DeleteItem(int itemId)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<UpdateItemDTO>> GetAllItems()
+        {
+            var items = await _itemRepository.GetAllItems();
+            return items.Select(item => new UpdateItemDTO
+            {
+                Id = item.Id,
+                Name = item.Name,
+                Description = item.Description,
+                Image = item.Image,
+                Price = item.Price,
+                Quantity = item.Quantity,
+                IsHaveDiscount = item.IsHaveDiscount,
+                DiscountAmount = item.DiscountAmount,
+                DiscountType = item.DiscountType,
+                CategoryID = item.CategoryID,
+                OrderId = item.OrderId
+            });
         }
 
         public async Task<UpdateItemDTO> GetItem(int itemId)

@@ -2,6 +2,7 @@
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using PetsCareCore.Services;
+using PetsCareInfra.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +80,21 @@ namespace PetsCareInfra.Services
             appointment.ClinicId = updateAppointmentDTO.ClinicId;
 
             await _clinicAppointmentRepository.UpdateAppointment(appointment);
+        }
+
+        public async Task<IEnumerable<UpdateClinicAppointmentDTO>> GetAllAppointments()
+        {
+            var appointments = await _clinicAppointmentRepository.GetAllAppointments();
+            return appointments.Select(appointment => new UpdateClinicAppointmentDTO
+            {
+                Id = appointment.Id,
+                Date = appointment.Date,
+                Price = appointment.Price,
+                IsPaid = appointment.IsPaid,
+                IsConfirmed = appointment.IsConfirmed,
+                PetId = appointment.PetId,
+                ClinicId = appointment.ClinicId
+            });
         }
     }
 }

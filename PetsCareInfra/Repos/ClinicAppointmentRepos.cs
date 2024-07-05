@@ -1,4 +1,5 @@
-﻿using PetsCareCore.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using PetsCareCore.Context;
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using System;
@@ -25,6 +26,11 @@ namespace PetsCareInfra.Repos
                 _context.ClinicsAppointment.Remove(appointment);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<ClinicAppointment>> GetAllAppointments()
+        {
+            return await _context.ClinicsAppointment.ToListAsync();
         }
 
         public async Task<ClinicAppointment> GetAppointmentById(int appointmentId)

@@ -13,5 +13,6 @@ namespace PetsCareCore.Services
         Task<UpdateClinicDTO> GetClinic(int clinicId);
         Task UpdateClinic(UpdateClinicDTO updateClinicDTO);
         Task DeleteClinic(int clinicId);
+        Task<IEnumerable<UpdateClinicDTO>> GetAllClinics();
     }
 }

@@ -1,4 +1,5 @@
-﻿using PetsCareCore.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using PetsCareCore.Context;
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
 using System;
@@ -32,6 +33,11 @@ namespace PetsCareInfra.Repos
                 _context.Clinics.Remove(clinic);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<Clinic>> GetAllClinics()
+        {
+            return await _context.Clinics.ToListAsync();
         }
 
         public async Task<Clinic> GetClinicById(int clinicId)
