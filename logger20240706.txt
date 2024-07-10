@@ -1,0 +1,26 @@
+2024-07-06 21:17:05.963 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-06 21:17:06.029 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44367/swagger/index.html - -
+2024-07-06 21:17:06.041 +03:00 [INF] Hosting environment: Development
+2024-07-06 21:17:06.041 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-07-06 21:17:07.248 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44367/_framework/aspnetcore-browser-refresh.js - -
+2024-07-06 21:17:07.248 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44367/swagger/index.html - - - 200 - text/html;charset=utf-8 1218.1216ms
+2024-07-06 21:17:07.247 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44367/_vs/browserLink - -
+2024-07-06 21:17:07.256 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44367/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 8.4384ms
+2024-07-06 21:17:07.413 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44367/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 165.5003ms
+2024-07-06 21:17:07.470 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44367/swagger/v1/swagger.json - -
+2024-07-06 21:17:07.912 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44367/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 442.1483ms
+2024-07-06 21:17:52.800 +03:00 [INF] Request starting HTTP/2 POST https://localhost:44367/api/Files/UploadImageAndGetURL?userId=9 multipart/form-data;+boundary=----WebKitFormBoundaryTLPvzRL95EsEkMdR 13407
+2024-07-06 21:17:52.837 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care)'
+2024-07-06 21:17:52.922 +03:00 [INF] Route matched with {action = "UploadImageAndGetURL", controller = "Files"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImageAndGetURL(Microsoft.AspNetCore.Http.IFormFile, Int32) on controller Pets_Care.Controllers.FilesController (Pets-Care).
+2024-07-06 21:17:57.361 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Id` = @__p_0
+LIMIT 1
+2024-07-06 21:17:57.771 +03:00 [INF] Executed DbCommand (16ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-07-06 21:17:57.804 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-07-06 21:17:57.827 +03:00 [INF] Executed action Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care) in 4895.6097ms
+2024-07-06 21:17:57.829 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care)'
+2024-07-06 21:17:57.850 +03:00 [INF] Request finished HTTP/2 POST https://localhost:44367/api/Files/UploadImageAndGetURL?userId=9 multipart/form-data;+boundary=----WebKitFormBoundaryTLPvzRL95EsEkMdR 13407 - 200 - application/json;+charset=utf-8 5050.7895ms

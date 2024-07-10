@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using PetsCareCore.Context;
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
@@ -92,6 +93,15 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles(); // To serve files 
+// Add custom static files middleware
+var imagesDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(imagesDirectory),
+    RequestPath = "/Images"
+});
 
 app.UseAuthorization();
 
