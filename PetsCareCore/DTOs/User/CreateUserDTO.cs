@@ -15,5 +15,6 @@ namespace PetsCareCore.DTOs.User
         public DateTime BirthDate { get; set; }
         public string? ProfileImage { get; set; }
         public int? UserRoleID { get; set; }
+        public string Password { get; set; }
     }
 }

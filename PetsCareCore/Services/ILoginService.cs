@@ -9,8 +9,10 @@ namespace PetsCareCore.Services
 {
     public interface ILoginService
     {
-        Task<bool> SignIn(LoginDTO loginDTO);
+        Task<string> SignIn(LoginDTO loginDTO);
         Task<bool> SignOut(int userId);
         Task<bool> RecoverPassword(RecoverPasswordDTO recoverPasswordDTO);
+        Task<bool> ResetPassword(string email, string token, string newPassword);
+
     }
 }

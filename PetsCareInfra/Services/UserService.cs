@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PetsCareCore.DTOs.Login;
 using PetsCareCore.DTOs.User;
 using PetsCareCore.Models.Entities;
 using PetsCareCore.Repos;
@@ -16,38 +17,68 @@ namespace PetsCareInfra.Services
     public class UserService:IUserService
     {
         private readonly IUserRepos _userRepository;
+        private readonly IloginRepos _loginRepository;
 
-        public UserService(IUserRepos userRepository)
+        public UserService(IUserRepos userRepository, IloginRepos loginRepository)
         {
             _userRepository = userRepository;
+            _loginRepository = loginRepository;
         }
 
         public async Task<CreateUserDTO> CreateUser(CreateUserDTO createUserDTO)
         {
-            var user = new User
+            try
             {
-                FirstName = createUserDTO.FirstName,
-                LastName = createUserDTO.LastName,
-                Email = createUserDTO.Email,
-                Phone = createUserDTO.Phone,
-                BirthDate = createUserDTO.BirthDate,
-                ProfileImage = createUserDTO.ProfileImage,
-                UserRoleID = createUserDTO.UserRoleID
-            };
+                // Create a new User entity from the DTO
+                var user = new User
+                {
+                    FirstName = createUserDTO.FirstName,
+                    LastName = createUserDTO.LastName,
+                    Email = createUserDTO.Email,
+                    Phone = createUserDTO.Phone,
+                    BirthDate = createUserDTO.BirthDate,
+                    ProfileImage = createUserDTO.ProfileImage,
+                    UserRoleID = createUserDTO.UserRoleID,
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword(createUserDTO.Password)
+                };
 
-            var createdUser = await _userRepository.CreateUser(user);
+                // Add the new User to the database
+                var createdUser = await _userRepository.CreateUser(user);
 
-            return new CreateUserDTO
+                // Proceed with creating a Login only if the User was successfully created
+                if (createdUser != null)
+                {
+                    // Create a Login object for the new user
+                    var login = new Login
+                    {
+                        UserName = createdUser.Email, // Using email as username
+                        Password = user.PasswordHash, // Use the hashed password from user entity
+                        UserId = createdUser.Id, // Associate with the created user's ID
+                        IsLoggedIn = false,
+                        LastLoginTime = DateTime.Now // Set the last login time to the current time
+                    };
+
+                    // Save the Login object to the database
+                    await _loginRepository.CreateLogin(login);
+                }
+
+                // Return the created user's data back as a DTO
+                return new CreateUserDTO
+                {
+                    FirstName = createdUser.FirstName,
+                    LastName = createdUser.LastName,
+                    Email = createdUser.Email,
+                    Phone = createdUser.Phone,
+                    BirthDate = createdUser.BirthDate,
+                    ProfileImage = createdUser.ProfileImage,
+                    UserRoleID = createdUser.UserRoleID
+                };
+            }
+            catch (Exception ex)
             {
-            
-                FirstName = createdUser.FirstName,
-                LastName = createdUser.LastName,
-                Email = createdUser.Email,
-                Phone = createdUser.Phone,
-                BirthDate = createdUser.BirthDate,
-                ProfileImage = createdUser.ProfileImage,
-                UserRoleID = createdUser.UserRoleID
-            };
+                // Throw a new exception with a user-friendly message
+                throw new Exception("An error occurred while creating the user. Please try again later.", ex);
+            }
         }
 
         public async Task DeleteUser(int userId)
@@ -119,4 +150,5 @@ namespace PetsCareInfra.Services
             await _userRepository.UpdateUser(user);
         }
     }
+
     }

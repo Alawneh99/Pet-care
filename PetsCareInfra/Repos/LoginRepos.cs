@@ -19,6 +19,12 @@ namespace PetsCareInfra.Repos
             _context = context;
         }
 
+        public async Task CreateLogin(Login login)
+        {
+            _context.Logins.Add(login);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Login> GetLoginByEmail(string email)
         {
             var login = await (from l in _context.Logins

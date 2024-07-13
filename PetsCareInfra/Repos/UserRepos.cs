@@ -51,6 +51,14 @@ namespace PetsCareInfra.Repos
             return await _context.Users.FindAsync(userId);
         }
 
+        public async Task<UserRole> GetUserRole(int? roleID)
+        {
+            if (!roleID.HasValue)
+                throw new ArgumentException("Role ID is null", nameof(roleID));
+
+            return await _context.Roles.FindAsync(roleID.Value);
+        }
+
         public async Task SetPasswordResetToken(User user, string token, DateTime expiry)
         {
             user.ResetPasswordToken = token;

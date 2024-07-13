@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Crypto.Generators;
 using PetsCareCore.DTOs.Category;
@@ -11,6 +12,7 @@ using PetsCareCore.DTOs.Service;
 using PetsCareCore.DTOs.User;
 using PetsCareCore.DTOs.WishList;
 using PetsCareCore.Services;
+using PetsCareInfra.Repos;
 using PetsCareInfra.Services;
 
 namespace Pets_Care.Controllers
@@ -82,6 +84,7 @@ namespace Pets_Care.Controllers
         /// </summary>
         /// <response code="200">Returns a list of users.</response>
         /// <response code="500">If there is an internal server error.</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("users")]
         public async Task<IActionResult> GetAllUsers()
         {
@@ -96,6 +99,7 @@ namespace Pets_Care.Controllers
         /// <response code="200">Returns the user with the specified ID.</response>
         /// <response code="404">If the user is not found.</response>
         /// <response code="500">If there is an internal server error.</response>
+        [Authorize(Roles = "Admin")]
         [HttpGet("user/{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
@@ -182,6 +186,7 @@ namespace Pets_Care.Controllers
         /// <response code="200">Returns the newly created category.</response>
         /// <response code="400">If the category data is null.</response>
         /// <response code="500">If there is an internal server error.</response>
+        [Authorize(Roles = "Admin")]
         [HttpPost("category")]
         public async Task<IActionResult> AddCategory([FromBody] CategoryDTO CategoryDTO)
         {
@@ -247,6 +252,7 @@ namespace Pets_Care.Controllers
         /// <response code="400">If the category data is invalid or the ID does not match.</response>
         /// <response code="404">If the category is not found.</response>
         /// <response code="500">If there is an internal server error.</response>
+        [Authorize(Roles = "Admin")]
         [HttpPut("category/{id}")]
         public async Task<IActionResult> UpdateCategory(int id, [FromBody] UpdateCategoryDTO updateCategoryDTO)
         {
@@ -279,6 +285,7 @@ namespace Pets_Care.Controllers
         /// <response code="204">Indicates that the category was successfully deleted.</response>
         /// <response code="404">If the category is not found.</response>
         /// <response code="500">If there is an internal server error.</response>
+        [Authorize(Roles = "Admin")]
         [HttpDelete("category/{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
@@ -306,6 +313,7 @@ namespace Pets_Care.Controllers
         /// <response code="200">Returns the newly created clinic.</response>
         /// <response code="400">If the clinic data is null.</response>
         /// <response code="500">If there is an internal server error.</response>
+        [Authorize(Roles = "Admin")]
         [HttpPost("clinic")]
         public async Task<IActionResult> AddClinic([FromBody] ClinicDTO ClinicDTO)
         {
@@ -371,6 +379,7 @@ namespace Pets_Care.Controllers
         /// <response code="400">If the clinic data is invalid or the ID does not match.</response>
         /// <response code="404">If the clinic is not found.</response>
         /// <response code="500">If there is an internal server error.</response>
+        [Authorize(Roles = "Admin")]
         [HttpPut("clinic/{id}")]
         public async Task<IActionResult> UpdateClinic(int id, [FromBody] UpdateClinicDTO updateClinicDTO)
         {
@@ -403,6 +412,7 @@ namespace Pets_Care.Controllers
         /// <response code="204">Indicates that the clinic was successfully deleted.</response>
         /// <response code="404">If the clinic is not found.</response>
         /// <response code="500">If there is an internal server error.</response>
+        [Authorize(Roles = "Admin")]
         [HttpDelete("clinic/{id}")]
         public async Task<IActionResult> DeleteClinic(int id)
         {
@@ -689,13 +699,13 @@ namespace Pets_Care.Controllers
 
             try
             {
-                var result = await _loginService.SignIn(loginDTO);
-                if (!result)
+                var token = await _loginService.SignIn(loginDTO);
+                if (string.IsNullOrEmpty(token))
                 {
                     return Unauthorized("Invalid username or password.");
                 }
 
-                return Ok("Sign-in successful.");
+                return Ok(new { Token = token });
             }
             catch (Exception ex)
             {
@@ -1126,18 +1136,16 @@ namespace Pets_Care.Controllers
         [HttpPost("ResetPassword")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDTO resetPasswordDTO)
         {
-            var user = await _userService.GetUserByEmail(resetPasswordDTO.Email);
-            if (user == null || user.ResetPasswordToken != resetPasswordDTO.Token || user.ResetPasswordExpiry < DateTime.Now)
+            var result = await _loginService.ResetPassword(resetPasswordDTO.Email, resetPasswordDTO.Token, resetPasswordDTO.NewPassword);
+
+            if (result)
+            {
+                return Ok("Password has been reset successfully.");
+            }
+            else
             {
                 return BadRequest("Invalid or expired token.");
             }
-
-            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(resetPasswordDTO.NewPassword); 
-            user.ResetPasswordToken = null;
-            user.ResetPasswordExpiry = null;
-            await _userService.UpdateUser(user);
-
-            return Ok("Password has been reset successfully.");
         }
     }
 }

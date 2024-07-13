@@ -13,6 +13,7 @@ namespace PetsCareCore.Repos
             Task<User> CreateUser(User user);
             Task<User> GetUserById(int userId);
             Task<User> GetUserByEmail(string email);
+            Task<UserRole> GetUserRole(int? roleID);
             Task UpdateUser(User user);
             Task DeleteUser(int userId);
             Task SetPasswordResetToken(User user, string token, DateTime expiry);
