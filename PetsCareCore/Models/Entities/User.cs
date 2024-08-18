@@ -15,7 +15,7 @@ namespace PetsCareCore.Models.Entities
         public string Phone { get; set; }
         public DateTime BirthDate { get; set; }
         public string? ProfileImage { get; set; }
-        public int? UserRoleID { get; set; }
+        public int UserRoleID { get; set; }
         public string ResetPasswordToken { get; set; }
         public DateTime? ResetPasswordExpiry { get; set; }
         public string PasswordHash { get; set; }

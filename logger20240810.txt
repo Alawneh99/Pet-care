@@ -1,0 +1,475 @@
+2024-08-10 10:31:11.331 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-10 10:31:11.759 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-10 10:31:11.759 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-10 10:31:11.763 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-10 10:31:11.763 +03:00 [INF] Hosting environment: Development
+2024-08-10 10:31:11.763 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-10 10:31:14.254 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-10 10:31:14.911 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 658.7575ms
+2024-08-10 10:31:14.936 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-10 10:31:14.937 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-10 10:31:14.955 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 19.5021ms
+2024-08-10 10:31:15.256 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 319.1718ms
+2024-08-10 10:31:15.337 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-10 10:31:15.666 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 328.9831ms
+2024-08-10 10:31:37.245 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/category application/json 43
+2024-08-10 10:31:37.268 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 10:31:37.274 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 10:31:37.275 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/category application/json 43 - 401 0 - 29.3076ms
+2024-08-10 10:40:14.257 +03:00 [INF] Request starting HTTP/2 PUT https://localhost:7156/api/User/category/6565 application/json 54
+2024-08-10 10:40:14.284 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 10:40:14.285 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 10:40:14.286 +03:00 [INF] Request finished HTTP/2 PUT https://localhost:7156/api/User/category/6565 application/json 54 - 401 0 - 29.7318ms
+2024-08-10 10:41:43.067 +03:00 [INF] Request starting HTTP/2 DELETE https://localhost:7156/api/User/category/6756765 - -
+2024-08-10 10:41:43.075 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 10:41:43.076 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 10:41:43.076 +03:00 [INF] Request finished HTTP/2 DELETE https://localhost:7156/api/User/category/6756765 - - - 401 0 - 13.9553ms
+2024-08-10 10:42:54.224 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/item application/json 213
+2024-08-10 10:42:54.250 +03:00 [INF] CORS policy execution successful.
+2024-08-10 10:42:54.256 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.AddItem (Pets-Care)'
+2024-08-10 10:42:54.295 +03:00 [INF] Route matched with {action = "AddItem", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddItem(PetsCareCore.DTOs.Item.ItemDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 10:42:56.877 +03:00 [ERR] Failed executing DbCommand (42ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 1000), @p2='?' (DbType = Single), @p3='?' (Size = 50), @p4='?' (Size = 200), @p5='?' (DbType = SByte), @p6='?' (Size = 200), @p7='?' (DbType = Int32), @p8='?' (DbType = Single), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Items` (`CategoryID`, `Description`, `DiscountAmount`, `DiscountType`, `Image`, `IsHaveDiscount`, `Name`, `OrderId`, `Price`, `Quantity`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `Items`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-08-10 10:42:56.918 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'PetsCareCore.Context.PetCareDbcontext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: Could not save changes. Please configure your entity type accordingly.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`pet-care`.`items`, CONSTRAINT `FK_Items_Categories_CategoryID` FOREIGN KEY (`CategoryID`) REFERENCES `categories` (`Id`) ON DELETE SET NULL)
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(Boolean execAsync)
+   at MySql.Data.MySqlClient.NativeDriver.GetResultAsync(Int32 affectedRow, Int64 insertedId, Boolean execAsync)
+   at MySql.Data.MySqlClient.Driver.GetResultAsync(Int32 statementId, Int32 affectedRows, Int64 insertedId, Boolean execAsync)
+   at MySql.Data.MySqlClient.Driver.NextResultAsync(Int32 statementId, Boolean force, Boolean execAsync)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MySql.EntityFrameworkCore.Update.MySQLModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: Could not save changes. Please configure your entity type accordingly.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`pet-care`.`items`, CONSTRAINT `FK_Items_Categories_CategoryID` FOREIGN KEY (`CategoryID`) REFERENCES `categories` (`Id`) ON DELETE SET NULL)
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(Boolean execAsync)
+   at MySql.Data.MySqlClient.NativeDriver.GetResultAsync(Int32 affectedRow, Int64 insertedId, Boolean execAsync)
+   at MySql.Data.MySqlClient.Driver.GetResultAsync(Int32 statementId, Int32 affectedRows, Int64 insertedId, Boolean execAsync)
+   at MySql.Data.MySqlClient.Driver.NextResultAsync(Int32 statementId, Boolean force, Boolean execAsync)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MySql.EntityFrameworkCore.Update.MySQLModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-10 10:42:57.289 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-08-10 10:42:57.299 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.AddItem (Pets-Care) in 2997.0057ms
+2024-08-10 10:42:57.300 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.AddItem (Pets-Care)'
+2024-08-10 10:42:57.313 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/item application/json 213 - 500 - text/plain;+charset=utf-8 3090.4820ms
+2024-08-10 10:56:28.155 +03:00 [INF] Request starting HTTP/2 PUT https://localhost:7156/api/User/item/654533 application/json 224
+2024-08-10 10:56:28.169 +03:00 [INF] CORS policy execution successful.
+2024-08-10 10:56:28.169 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.UpdateItem (Pets-Care)'
+2024-08-10 10:56:28.179 +03:00 [INF] Route matched with {action = "UpdateItem", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateItem(Int32, PetsCareCore.DTOs.Item.UpdateItemDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 10:56:28.199 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-08-10 10:56:28.199 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.UpdateItem (Pets-Care) in 20.4093ms
+2024-08-10 10:56:28.199 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.UpdateItem (Pets-Care)'
+2024-08-10 10:56:28.200 +03:00 [INF] Request finished HTTP/2 PUT https://localhost:7156/api/User/item/654533 application/json 224 - 400 - text/plain;+charset=utf-8 44.6320ms
+2024-08-10 10:57:03.252 +03:00 [INF] Request starting HTTP/2 DELETE https://localhost:7156/api/User/item/5353 - -
+2024-08-10 10:57:03.281 +03:00 [INF] CORS policy execution successful.
+2024-08-10 10:57:03.281 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.DeleteItem (Pets-Care)'
+2024-08-10 10:57:03.285 +03:00 [INF] Route matched with {action = "DeleteItem", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteItem(Int32) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 10:57:03.857 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+WHERE `i`.`Id` = @__p_0
+LIMIT 1
+2024-08-10 10:57:03.872 +03:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2024-08-10 10:57:03.872 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.DeleteItem (Pets-Care) in 587.2765ms
+2024-08-10 10:57:03.872 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.DeleteItem (Pets-Care)'
+2024-08-10 10:57:03.873 +03:00 [INF] Request finished HTTP/2 DELETE https://localhost:7156/api/User/item/5353 - - - 404 - text/plain;+charset=utf-8 623.4459ms
+2024-08-10 10:57:56.213 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-10 10:57:56.220 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-10 10:57:56.228 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 10:57:56.290 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-10 10:57:56.333 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 10:57:56.357 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 129.1461ms
+2024-08-10 10:57:56.357 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-10 10:57:56.357 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 144.1567ms
+2024-08-10 10:58:47.552 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 10:58:47.582 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 10:58:47.582 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 10:58:47.582 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 30.8048ms
+2024-08-10 10:58:57.366 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 10:58:57.367 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 10:58:57.367 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 10:58:57.367 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 0.9880ms
+2024-08-10 12:36:09.338 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 12:36:09.340 +03:00 [INF] CORS policy execution successful.
+2024-08-10 12:36:09.340 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 12:36:09.361 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 12:36:09.467 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 12:36:09.485 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 12:36:09.490 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 128.5529ms
+2024-08-10 12:36:09.490 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 12:36:09.490 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 152.5820ms
+2024-08-10 12:38:54.888 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 12:38:54.894 +03:00 [INF] CORS policy execution successful.
+2024-08-10 12:38:54.894 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 12:38:54.897 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 12:38:54.914 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 12:38:54.915 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 12:38:54.915 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 18.1227ms
+2024-08-10 12:38:54.915 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 12:38:54.916 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 27.8710ms
+2024-08-10 12:53:40.214 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 12:53:40.217 +03:00 [INF] CORS policy execution successful.
+2024-08-10 12:53:40.217 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 12:53:40.217 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 12:53:40.310 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 12:53:40.311 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 12:53:40.312 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 94.1755ms
+2024-08-10 12:53:40.312 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 12:53:40.312 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 100.4457ms
+2024-08-10 12:53:44.476 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 12:53:44.476 +03:00 [INF] CORS policy execution successful.
+2024-08-10 12:53:44.477 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 12:53:44.477 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 12:53:44.487 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 12:53:44.489 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 12:53:44.489 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 12.3369ms
+2024-08-10 12:53:44.489 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 12:53:44.489 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 13.5371ms
+2024-08-10 12:53:49.517 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/category/1 - -
+2024-08-10 12:53:49.518 +03:00 [INF] CORS policy execution successful.
+2024-08-10 12:53:49.520 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/category/1 - - - 204 - - 2.5618ms
+2024-08-10 12:53:49.523 +03:00 [INF] Request starting HTTP/2 PUT https://localhost:7156/api/User/category/1 application/json 39
+2024-08-10 12:53:49.523 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 12:53:49.524 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 12:53:49.524 +03:00 [INF] Request finished HTTP/2 PUT https://localhost:7156/api/User/category/1 application/json 39 - 401 0 - 0.8043ms
+2024-08-10 12:53:50.386 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/category/2 - -
+2024-08-10 12:53:50.387 +03:00 [INF] CORS policy execution successful.
+2024-08-10 12:53:50.387 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/category/2 - - - 204 - - 0.8508ms
+2024-08-10 12:53:50.391 +03:00 [INF] Request starting HTTP/2 PUT https://localhost:7156/api/User/category/2 application/json 38
+2024-08-10 12:53:50.391 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 12:53:50.391 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 12:53:50.392 +03:00 [INF] Request finished HTTP/2 PUT https://localhost:7156/api/User/category/2 application/json 38 - 401 0 - 0.8670ms
+2024-08-10 12:53:51.514 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/category/1 - -
+2024-08-10 12:53:51.514 +03:00 [INF] CORS policy execution successful.
+2024-08-10 12:53:51.514 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/category/1 - - - 204 - - 0.6246ms
+2024-08-10 12:53:51.518 +03:00 [INF] Request starting HTTP/2 DELETE https://localhost:7156/api/User/category/1 - -
+2024-08-10 12:53:51.518 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 12:53:51.518 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 12:53:51.518 +03:00 [INF] Request finished HTTP/2 DELETE https://localhost:7156/api/User/category/1 - - - 401 0 - 0.6875ms
+2024-08-10 12:53:54.814 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/category - -
+2024-08-10 12:53:54.815 +03:00 [INF] CORS policy execution successful.
+2024-08-10 12:53:54.815 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/category - - - 204 - - 0.6132ms
+2024-08-10 12:53:54.817 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/category application/json 83
+2024-08-10 12:53:54.817 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 12:53:54.817 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 12:53:54.817 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/category application/json 83 - 401 0 - 0.3885ms
+2024-08-10 13:07:59.159 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 13:07:59.166 +03:00 [INF] CORS policy execution successful.
+2024-08-10 13:07:59.166 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 13:07:59.169 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 13:07:59.220 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 13:07:59.221 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 13:07:59.222 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 52.4771ms
+2024-08-10 13:07:59.222 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 13:07:59.222 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 63.0131ms
+2024-08-10 13:10:45.103 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 13:10:45.104 +03:00 [INF] CORS policy execution successful.
+2024-08-10 13:10:45.104 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 13:10:45.112 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 13:10:45.169 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 13:10:45.170 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 13:10:45.170 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 58.4676ms
+2024-08-10 13:10:45.171 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 13:10:45.171 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 67.5409ms
+2024-08-10 13:10:49.255 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-10 13:10:49.256 +03:00 [INF] CORS policy execution successful.
+2024-08-10 13:10:49.256 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-10 13:10:49.262 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 13:10:49.289 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-10 13:10:49.298 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 13:10:49.308 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 45.9719ms
+2024-08-10 13:10:49.308 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-10 13:10:49.309 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 53.8674ms
+2024-08-10 13:12:38.536 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-10 13:12:38.537 +03:00 [INF] CORS policy execution successful.
+2024-08-10 13:12:38.538 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-10 13:12:38.542 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 13:12:38.564 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-10 13:12:38.566 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 13:12:38.566 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 22.8459ms
+2024-08-10 13:12:38.566 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-10 13:12:38.566 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 30.8802ms
+2024-08-10 13:12:41.406 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-10 13:12:41.407 +03:00 [INF] CORS policy execution successful.
+2024-08-10 13:12:41.407 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-10 13:12:41.407 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 13:12:41.427 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-10 13:12:41.431 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 13:12:41.433 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 25.7249ms
+2024-08-10 13:12:41.433 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-10 13:12:41.433 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 26.8989ms
+2024-08-10 13:12:54.653 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-10 13:12:54.653 +03:00 [INF] CORS policy execution successful.
+2024-08-10 13:12:54.654 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-10 13:12:54.654 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 13:12:54.675 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-10 13:12:54.678 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 13:12:54.678 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 24.1086ms
+2024-08-10 13:12:54.679 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-10 13:12:54.679 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 26.4451ms
+2024-08-10 13:14:21.509 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:14:21.515 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:14:21.516 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:14:21.517 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 7.3929ms
+2024-08-10 13:14:25.106 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:14:25.106 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:14:25.106 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:14:25.106 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 0.5020ms
+2024-08-10 13:14:35.966 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:14:35.968 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:14:35.968 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:14:35.968 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 1.7877ms
+2024-08-10 13:15:03.448 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:15:03.448 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:15:03.448 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:15:03.448 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 0.5094ms
+2024-08-10 13:15:25.835 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-10 13:15:26.042 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-10 13:15:26.043 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-10 13:15:26.044 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-10 13:15:26.044 +03:00 [INF] Hosting environment: Development
+2024-08-10 13:15:26.044 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-10 13:15:29.674 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-10 13:15:29.955 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 284.5795ms
+2024-08-10 13:15:29.965 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-10 13:15:29.965 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-10 13:15:29.971 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 5.6506ms
+2024-08-10 13:15:30.011 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.0145ms
+2024-08-10 13:15:30.119 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-10 13:15:30.228 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 109.2201ms
+2024-08-10 13:15:34.768 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:15:34.806 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:15:34.815 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:15:34.815 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 47.8109ms
+2024-08-10 13:16:13.581 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:16:13.591 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:16:13.592 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:16:13.592 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 11.2267ms
+2024-08-10 13:16:17.000 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:16:17.003 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:16:17.004 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:16:17.004 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 4.4151ms
+2024-08-10 13:16:33.530 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:16:33.531 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:16:33.531 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:16:33.531 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 0.9776ms
+2024-08-10 13:17:15.505 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:17:15.506 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:17:15.506 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:17:15.530 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7156/api/User/users - - - 401 0 - 25.4204ms
+2024-08-10 13:54:22.806 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:54:22.808 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:54:22.813 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:54:22.813 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 6.8361ms
+2024-08-10 13:58:02.199 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:58:02.201 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:58:02.201 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:58:02.203 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 1.5303ms
+2024-08-10 13:58:04.192 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 13:58:04.192 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 13:58:04.193 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 13:58:04.193 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 0.6128ms
+2024-08-10 14:00:37.199 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 14:00:37.499 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 14:00:37.499 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 14:00:37.510 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 305.6673ms
+2024-08-10 14:02:35.768 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-10 14:02:35.769 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-10 14:02:35.769 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-10 14:02:35.770 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 1.4909ms
+2024-08-10 14:02:41.597 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/ForgotPassword - -
+2024-08-10 14:02:41.610 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:02:41.617 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/ForgotPassword - - - 204 - - 20.1738ms
+2024-08-10 14:02:41.638 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 12
+2024-08-10 14:02:41.640 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:02:41.645 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-08-10 14:02:41.694 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:02:44.432 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 16
+2024-08-10 14:02:44.434 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:02:44.434 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-08-10 14:02:44.435 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:02:45.875 +03:00 [INF] Executed DbCommand (46ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-10 14:02:45.884 +03:00 [INF] Executed DbCommand (44ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-10 14:02:45.944 +03:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2024-08-10 14:02:45.955 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 4253.6676ms
+2024-08-10 14:02:45.957 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-08-10 14:02:45.962 +03:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2024-08-10 14:02:45.962 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 1527.0792ms
+2024-08-10 14:02:45.962 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-08-10 14:02:45.980 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 16 - 404 - text/plain;+charset=utf-8 1547.4438ms
+2024-08-10 14:02:46.002 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 12 - 404 - text/plain;+charset=utf-8 4363.1349ms
+2024-08-10 14:02:52.320 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/login - -
+2024-08-10 14:02:52.321 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:02:52.322 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/login - - - 204 - - 1.1234ms
+2024-08-10 14:02:52.326 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 26
+2024-08-10 14:02:52.326 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:02:52.326 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-10 14:02:52.338 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:02:56.752 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-10 14:03:00.826 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-08-10 14:03:00.827 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 8488.7023ms
+2024-08-10 14:03:00.827 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-10 14:03:00.827 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 26 - 401 - text/plain;+charset=utf-8 8501.5840ms
+2024-08-10 14:17:29.965 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/user multipart/form-data;+boundary=----WebKitFormBoundaryEzLuHhwXMWmBKYal 1173902
+2024-08-10 14:17:29.966 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:17:29.966 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-10 14:17:30.037 +03:00 [INF] Route matched with {action = "CreateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(PetsCareCore.DTOs.User.CreateUserDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:17:30.242 +03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-08-10 14:17:30.249 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.CreateUser (Pets-Care) in 212.301ms
+2024-08-10 14:17:30.250 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-10 14:17:30.263 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/user multipart/form-data;+boundary=----WebKitFormBoundaryEzLuHhwXMWmBKYal 1173902 - 415 - application/problem+json;+charset=utf-8 297.6726ms
+2024-08-10 14:18:06.561 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/user multipart/form-data;+boundary=----WebKitFormBoundarycv23GEn9b8ABStAc 1173902
+2024-08-10 14:18:06.561 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:18:06.562 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-10 14:18:06.562 +03:00 [INF] Route matched with {action = "CreateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(PetsCareCore.DTOs.User.CreateUserDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:18:06.690 +03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-08-10 14:18:06.690 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.CreateUser (Pets-Care) in 127.996ms
+2024-08-10 14:18:06.690 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-10 14:18:06.695 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/user multipart/form-data;+boundary=----WebKitFormBoundarycv23GEn9b8ABStAc 1173902 - 415 - application/problem+json;+charset=utf-8 133.9012ms
+2024-08-10 14:18:27.231 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 14:18:27.232 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:18:27.234 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:27.243 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:18:27.397 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 14:18:27.555 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 14:18:27.562 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 316.9739ms
+2024-08-10 14:18:27.562 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:27.563 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 331.7206ms
+2024-08-10 14:18:29.797 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 14:18:29.799 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:18:29.799 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:29.800 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:18:29.819 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 14:18:29.821 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 14:18:29.821 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 21.8725ms
+2024-08-10 14:18:29.822 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:29.822 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 24.5223ms
+2024-08-10 14:18:32.654 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 14:18:32.655 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:18:32.655 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:32.656 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:18:32.675 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 14:18:32.676 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 14:18:32.676 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 20.6975ms
+2024-08-10 14:18:32.677 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:32.677 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 23.2215ms
+2024-08-10 14:18:34.147 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 14:18:34.148 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:18:34.148 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:34.148 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:18:34.169 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 14:18:34.171 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 14:18:34.172 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 23.485ms
+2024-08-10 14:18:34.172 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:34.172 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 25.1821ms
+2024-08-10 14:18:35.167 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/categories - -
+2024-08-10 14:18:35.168 +03:00 [INF] CORS policy execution successful.
+2024-08-10 14:18:35.168 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:35.168 +03:00 [INF] Route matched with {action = "GetAllCategories", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCategories() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-10 14:18:35.184 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Image`, `c`.`Name`
+FROM `Categories` AS `c`
+2024-08-10 14:18:35.185 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Category, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Category.UpdateCategoryDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-10 14:18:35.186 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care) in 17.8588ms
+2024-08-10 14:18:35.186 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllCategories (Pets-Care)'
+2024-08-10 14:18:35.187 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/categories - - - 200 - application/json;+charset=utf-8 19.2667ms

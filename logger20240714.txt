@@ -1,0 +1,26 @@
+2024-07-14 20:33:14.166 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-07-14 20:33:14.953 +03:00 [INF] Now listening on: https://localhost:7156
+2024-07-14 20:33:14.954 +03:00 [INF] Now listening on: http://localhost:5299
+2024-07-14 20:33:14.959 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-07-14 20:33:14.959 +03:00 [INF] Hosting environment: Development
+2024-07-14 20:33:14.960 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-07-14 20:33:16.750 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-07-14 20:33:17.814 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-07-14 20:33:17.820 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-07-14 20:33:17.838 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 1091.1015ms
+2024-07-14 20:33:17.862 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 41.8622ms
+2024-07-14 20:33:17.968 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 153.4814ms
+2024-07-14 20:33:18.078 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-07-14 20:33:18.673 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 596.1881ms
+2024-07-14 21:00:06.639 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 47
+2024-07-14 21:00:06.659 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-07-14 21:00:06.737 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-07-14 21:00:10.170 +03:00 [INF] Executed DbCommand (34ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-07-14 21:00:11.256 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-07-14 21:00:11.264 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 4520.9456ms
+2024-07-14 21:00:11.265 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-07-14 21:00:11.298 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 47 - 401 - text/plain;+charset=utf-8 4659.2203ms

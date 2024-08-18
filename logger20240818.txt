@@ -1,0 +1,630 @@
+2024-08-18 14:14:25.942 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-18 14:14:26.675 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-18 14:14:26.676 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-18 14:14:26.678 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-18 14:14:26.679 +03:00 [INF] Hosting environment: Development
+2024-08-18 14:14:26.679 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-18 14:14:28.955 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-18 14:14:29.768 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 814.4107ms
+2024-08-18 14:14:29.788 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-18 14:14:29.817 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 29.6587ms
+2024-08-18 14:14:29.948 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-18 14:14:30.321 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 372.9320ms
+2024-08-18 14:16:29.342 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 14:16:29.378 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:16:29.381 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 14:16:29.416 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:16:31.852 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 14:16:31.959 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 14:16:31.987 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 2566.0916ms
+2024-08-18 14:16:31.987 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 14:16:32.005 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 2663.5597ms
+2024-08-18 14:20:01.843 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/login - -
+2024-08-18 14:20:01.877 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:20:01.882 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/login - - - 204 - - 39.4240ms
+2024-08-18 14:20:01.889 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 51
+2024-08-18 14:20:01.892 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:20:01.892 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:20:01.909 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:20:02.399 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-18 14:20:02.942 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`RoleName`
+FROM `Roles` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-08-18 14:20:03.169 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:20:03.175 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 1266.3758ms
+2024-08-18 14:20:03.176 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:20:03.178 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 51 - 200 - application/json;+charset=utf-8 1291.5311ms
+2024-08-18 14:24:58.311 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - -
+2024-08-18 14:24:58.317 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:24:58.320 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - - - 204 - - 9.2306ms
+2024-08-18 14:24:58.328 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2
+2024-08-18 14:24:58.330 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:24:58.330 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:24:58.342 +03:00 [INF] Route matched with {action = "SignOut", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOut(Int32) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:24:58.449 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`IsLoggedIn`, `l`.`LastLoginTime`, `l`.`Password`, `l`.`UserId`, `l`.`UserName`
+FROM `Logins` AS `l`
+WHERE `l`.`UserId` = @__userId_0
+LIMIT 1
+2024-08-18 14:24:58.589 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = SByte), @p1='?' (DbType = DateTime), @p2='?' (Size = 200), @p3='?' (DbType = Int32), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Logins` SET `IsLoggedIn` = @p0, `LastLoginTime` = @p1, `Password` = @p2, `UserId` = @p3, `UserName` = @p4
+WHERE `Id` = @p5;
+2024-08-18 14:24:58.601 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:24:58.602 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignOut (Pets-Care) in 260.1828ms
+2024-08-18 14:24:58.602 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:24:58.602 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2 - 200 - application/json;+charset=utf-8 274.1010ms
+2024-08-18 14:25:04.535 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/login - -
+2024-08-18 14:25:04.535 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:25:04.535 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/login - - - 204 - - 0.5953ms
+2024-08-18 14:25:04.539 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 51
+2024-08-18 14:25:04.539 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:25:04.539 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:25:04.540 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:25:04.566 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-18 14:25:04.831 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`RoleName`
+FROM `Roles` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-08-18 14:25:04.833 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:25:04.833 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 292.9746ms
+2024-08-18 14:25:04.833 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:25:04.833 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 51 - 200 - application/json;+charset=utf-8 294.4943ms
+2024-08-18 14:25:12.321 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 14:25:12.322 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:25:12.322 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 14:25:12.327 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:25:12.354 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 14:25:12.385 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 14:25:12.426 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 98.8924ms
+2024-08-18 14:25:12.426 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 14:25:12.427 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 105.5727ms
+2024-08-18 14:25:14.895 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 14:25:14.896 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:25:14.896 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 14:25:14.896 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:25:14.911 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 14:25:14.912 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 14:25:14.922 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 26.1165ms
+2024-08-18 14:25:14.923 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 14:25:14.924 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 28.5546ms
+2024-08-18 14:25:19.831 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - -
+2024-08-18 14:25:19.832 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:25:19.833 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - - - 204 - - 1.1041ms
+2024-08-18 14:25:19.836 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2
+2024-08-18 14:25:19.836 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:25:19.836 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:25:19.837 +03:00 [INF] Route matched with {action = "SignOut", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOut(Int32) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:25:19.864 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`IsLoggedIn`, `l`.`LastLoginTime`, `l`.`Password`, `l`.`UserId`, `l`.`UserName`
+FROM `Logins` AS `l`
+WHERE `l`.`UserId` = @__userId_0
+LIMIT 1
+2024-08-18 14:25:19.880 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = SByte), @p1='?' (DbType = DateTime), @p2='?' (Size = 200), @p3='?' (DbType = Int32), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Logins` SET `IsLoggedIn` = @p0, `LastLoginTime` = @p1, `Password` = @p2, `UserId` = @p3, `UserName` = @p4
+WHERE `Id` = @p5;
+2024-08-18 14:25:19.882 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:25:19.882 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignOut (Pets-Care) in 45.2444ms
+2024-08-18 14:25:19.882 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:25:19.882 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2 - 200 - application/json;+charset=utf-8 46.2394ms
+2024-08-18 14:25:29.314 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/login - -
+2024-08-18 14:25:29.314 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:25:29.315 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/login - - - 204 - - 0.6420ms
+2024-08-18 14:25:29.318 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 51
+2024-08-18 14:25:29.318 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:25:29.318 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:25:29.319 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:25:29.337 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-18 14:25:29.606 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`RoleName`
+FROM `Roles` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-08-18 14:25:29.607 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:25:29.607 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 288.7272ms
+2024-08-18 14:25:29.607 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:25:29.608 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 51 - 200 - application/json;+charset=utf-8 289.6756ms
+2024-08-18 14:27:23.566 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 14:27:23.573 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:27:23.574 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 14:27:23.574 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:27:23.600 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 14:27:23.601 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 14:27:23.603 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 28.6729ms
+2024-08-18 14:27:23.604 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 14:27:23.605 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 40.0137ms
+2024-08-18 14:27:24.621 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - -
+2024-08-18 14:27:24.622 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:27:24.622 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - - - 204 - - 0.5763ms
+2024-08-18 14:27:24.628 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2
+2024-08-18 14:27:24.628 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:27:24.628 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:27:24.628 +03:00 [INF] Route matched with {action = "SignOut", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOut(Int32) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:27:24.719 +03:00 [INF] Executed DbCommand (27ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`IsLoggedIn`, `l`.`LastLoginTime`, `l`.`Password`, `l`.`UserId`, `l`.`UserName`
+FROM `Logins` AS `l`
+WHERE `l`.`UserId` = @__userId_0
+LIMIT 1
+2024-08-18 14:27:24.765 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = SByte), @p1='?' (DbType = DateTime), @p2='?' (Size = 200), @p3='?' (DbType = Int32), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Logins` SET `IsLoggedIn` = @p0, `LastLoginTime` = @p1, `Password` = @p2, `UserId` = @p3, `UserName` = @p4
+WHERE `Id` = @p5;
+2024-08-18 14:27:24.770 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:27:24.771 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignOut (Pets-Care) in 142.0568ms
+2024-08-18 14:27:24.771 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:27:24.771 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2 - 200 - application/json;+charset=utf-8 143.2350ms
+2024-08-18 14:27:32.178 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/login - -
+2024-08-18 14:27:32.181 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:27:32.181 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/login - - - 204 - - 2.8875ms
+2024-08-18 14:27:32.184 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 51
+2024-08-18 14:27:32.185 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:27:32.185 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:27:32.185 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:27:32.206 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-18 14:27:32.547 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`RoleName`
+FROM `Roles` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-08-18 14:27:32.548 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:27:32.548 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 363.2246ms
+2024-08-18 14:27:32.548 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:27:32.548 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 51 - 200 - application/json;+charset=utf-8 364.0506ms
+2024-08-18 14:32:12.207 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - -
+2024-08-18 14:32:12.213 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:32:12.215 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - - - 204 - - 8.7881ms
+2024-08-18 14:32:12.217 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2
+2024-08-18 14:32:12.217 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:32:12.217 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:32:12.217 +03:00 [INF] Route matched with {action = "SignOut", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOut(Int32) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:32:12.270 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`IsLoggedIn`, `l`.`LastLoginTime`, `l`.`Password`, `l`.`UserId`, `l`.`UserName`
+FROM `Logins` AS `l`
+WHERE `l`.`UserId` = @__userId_0
+LIMIT 1
+2024-08-18 14:32:12.281 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = SByte), @p1='?' (DbType = DateTime), @p2='?' (Size = 200), @p3='?' (DbType = Int32), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Logins` SET `IsLoggedIn` = @p0, `LastLoginTime` = @p1, `Password` = @p2, `UserId` = @p3, `UserName` = @p4
+WHERE `Id` = @p5;
+2024-08-18 14:32:12.281 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:32:12.281 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignOut (Pets-Care) in 63.9168ms
+2024-08-18 14:32:12.281 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:32:12.282 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2 - 200 - application/json;+charset=utf-8 64.9564ms
+2024-08-18 14:32:18.271 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/login - -
+2024-08-18 14:32:18.271 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:32:18.272 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/login - - - 204 - - 1.2563ms
+2024-08-18 14:32:18.275 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 51
+2024-08-18 14:32:18.275 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:32:18.276 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:32:18.276 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:32:18.304 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-18 14:32:18.568 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`RoleName`
+FROM `Roles` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-08-18 14:32:18.569 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`2[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:32:18.569 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 292.8839ms
+2024-08-18 14:32:18.569 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-18 14:32:18.569 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 51 - 200 - application/json;+charset=utf-8 294.1998ms
+2024-08-18 14:32:28.225 +03:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - -
+2024-08-18 14:32:28.226 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:32:28.226 +03:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7156/api/User/logout/46 - - - 204 - - 0.6108ms
+2024-08-18 14:32:28.231 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2
+2024-08-18 14:32:28.231 +03:00 [INF] CORS policy execution successful.
+2024-08-18 14:32:28.231 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:32:28.231 +03:00 [INF] Route matched with {action = "SignOut", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignOut(Int32) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 14:32:28.252 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`IsLoggedIn`, `l`.`LastLoginTime`, `l`.`Password`, `l`.`UserId`, `l`.`UserName`
+FROM `Logins` AS `l`
+WHERE `l`.`UserId` = @__userId_0
+LIMIT 1
+2024-08-18 14:32:28.272 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = SByte), @p1='?' (DbType = DateTime), @p2='?' (Size = 200), @p3='?' (DbType = Int32), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Logins` SET `IsLoggedIn` = @p0, `LastLoginTime` = @p1, `Password` = @p2, `UserId` = @p3, `UserName` = @p4
+WHERE `Id` = @p5;
+2024-08-18 14:32:28.272 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-18 14:32:28.272 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignOut (Pets-Care) in 40.963ms
+2024-08-18 14:32:28.272 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignOut (Pets-Care)'
+2024-08-18 14:32:28.273 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/logout/46 application/json 2 - 200 - application/json;+charset=utf-8 41.7823ms
+2024-08-18 18:25:21.092 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/Files/UploadImageAndGetURL multipart/form-data;+boundary=----WebKitFormBoundaryuBaOC6EKDh9BZyE5 1721729
+2024-08-18 18:25:21.096 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:25:21.096 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care)'
+2024-08-18 18:25:21.102 +03:00 [INF] Route matched with {action = "UploadImageAndGetURL", controller = "Files"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImageAndGetURL(Microsoft.AspNetCore.Http.IFormFile) on controller Pets_Care.Controllers.FilesController (Pets-Care).
+2024-08-18 18:25:21.274 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-08-18 18:25:21.274 +03:00 [INF] Executed action Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care) in 171.8154ms
+2024-08-18 18:25:21.274 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care)'
+2024-08-18 18:25:21.277 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/Files/UploadImageAndGetURL multipart/form-data;+boundary=----WebKitFormBoundaryuBaOC6EKDh9BZyE5 1721729 - 200 - text/plain;+charset=utf-8 184.9619ms
+2024-08-18 18:25:21.290 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/user multipart/form-data;+boundary=----WebKitFormBoundarygFikvVTKKkT9VJC1 944
+2024-08-18 18:25:21.290 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:25:21.290 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-18 18:25:21.296 +03:00 [INF] Route matched with {action = "CreateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(PetsCareCore.DTOs.User.CreateUserDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:25:21.317 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-08-18 18:25:21.319 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.CreateUser (Pets-Care) in 22.7347ms
+2024-08-18 18:25:21.319 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-18 18:25:21.319 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/user multipart/form-data;+boundary=----WebKitFormBoundarygFikvVTKKkT9VJC1 944 - 400 - application/problem+json;+charset=utf-8 29.4529ms
+2024-08-18 18:30:06.351 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/Files/UploadImageAndGetURL multipart/form-data;+boundary=----WebKitFormBoundary0fh2kAkpEVeqqnmg 1721729
+2024-08-18 18:30:06.357 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:30:06.359 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care)'
+2024-08-18 18:30:06.359 +03:00 [INF] Route matched with {action = "UploadImageAndGetURL", controller = "Files"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImageAndGetURL(Microsoft.AspNetCore.Http.IFormFile) on controller Pets_Care.Controllers.FilesController (Pets-Care).
+2024-08-18 18:30:06.454 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-08-18 18:30:06.454 +03:00 [INF] Executed action Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care) in 94.6106ms
+2024-08-18 18:30:06.454 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.FilesController.UploadImageAndGetURL (Pets-Care)'
+2024-08-18 18:30:06.455 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/Files/UploadImageAndGetURL multipart/form-data;+boundary=----WebKitFormBoundary0fh2kAkpEVeqqnmg 1721729 - 200 - text/plain;+charset=utf-8 103.5836ms
+2024-08-18 18:30:06.462 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/user multipart/form-data;+boundary=----WebKitFormBoundarybsXW9t1pn5ruhBrQ 957
+2024-08-18 18:30:06.462 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:30:06.462 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-18 18:30:06.462 +03:00 [INF] Route matched with {action = "CreateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(PetsCareCore.DTOs.User.CreateUserDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:30:06.713 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Users` (`BirthDate`, `Email`, `FirstName`, `LastName`, `PasswordHash`, `Phone`, `ProfileImage`, `ResetPasswordExpiry`, `ResetPasswordToken`, `UserRoleID`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `Users`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-08-18 18:30:06.767 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = SByte), @p1='?' (DbType = DateTime), @p2='?' (Size = 200), @p3='?' (DbType = Int32), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Logins` (`IsLoggedIn`, `LastLoginTime`, `Password`, `UserId`, `UserName`)
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT `Id`
+FROM `Logins`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-08-18 18:30:06.776 +03:00 [INF] Executing OkObjectResult, writing value of type 'PetsCareCore.DTOs.User.CreateUserDTO'.
+2024-08-18 18:30:06.779 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.CreateUser (Pets-Care) in 316.5378ms
+2024-08-18 18:30:06.779 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-18 18:30:06.779 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/user multipart/form-data;+boundary=----WebKitFormBoundarybsXW9t1pn5ruhBrQ 957 - 200 - application/json;+charset=utf-8 317.6089ms
+2024-08-18 18:32:12.888 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:32:12.894 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:32:12.894 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:32:12.894 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:32:12.917 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:32:12.918 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:32:12.920 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 25.2883ms
+2024-08-18 18:32:12.920 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:32:12.922 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 33.5162ms
+2024-08-18 18:32:17.579 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:32:17.581 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:32:17.581 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:32:17.581 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:32:17.598 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:32:17.600 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:32:17.603 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 22.0786ms
+2024-08-18 18:32:17.603 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:32:17.604 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 24.4390ms
+2024-08-18 18:32:19.227 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:32:19.228 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:32:19.228 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:32:19.228 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:32:19.247 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:32:19.249 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:32:19.250 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 22.0013ms
+2024-08-18 18:32:19.250 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:32:19.251 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 23.9377ms
+2024-08-18 18:32:21.297 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:32:21.298 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:32:21.298 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:32:21.298 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:32:21.320 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:32:21.324 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:32:21.335 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 37.2527ms
+2024-08-18 18:32:21.335 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:32:21.336 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 38.5765ms
+2024-08-18 18:32:27.896 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:32:27.897 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:32:27.897 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:32:27.897 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:32:27.917 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:32:27.919 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:32:27.921 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 23.5694ms
+2024-08-18 18:32:27.921 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:32:27.922 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 25.1973ms
+2024-08-18 18:32:28.381 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:32:28.382 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:32:28.382 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:32:28.382 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:32:28.396 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:32:28.398 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:32:28.398 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 15.8527ms
+2024-08-18 18:32:28.398 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:32:28.398 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 16.8283ms
+2024-08-18 18:33:21.282 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:33:21.289 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:33:21.290 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:33:21.291 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:33:21.324 +03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:33:21.325 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:33:21.328 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 37.0563ms
+2024-08-18 18:33:21.328 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:33:21.330 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 48.5170ms
+2024-08-18 18:33:37.940 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:33:37.941 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:33:37.942 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:33:37.942 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:33:37.959 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:33:37.960 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:33:37.961 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 18.7595ms
+2024-08-18 18:33:37.961 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:33:37.961 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 20.6128ms
+2024-08-18 18:33:38.437 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:33:38.437 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:33:38.437 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:33:38.438 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:33:38.452 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:33:38.455 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:33:38.457 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 19.1304ms
+2024-08-18 18:33:38.457 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:33:38.457 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 20.2425ms
+2024-08-18 18:34:20.426 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:34:20.427 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:34:20.428 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:34:20.429 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:34:20.454 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:34:20.458 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:34:20.459 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 30.8413ms
+2024-08-18 18:34:20.460 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:34:20.460 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 33.7985ms
+2024-08-18 18:34:21.165 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:34:21.166 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:34:21.166 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:34:21.166 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:34:21.187 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:34:21.189 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:34:21.189 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 22.7185ms
+2024-08-18 18:34:21.189 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:34:21.189 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 23.6231ms
+2024-08-18 18:41:46.925 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:41:46.926 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:41:46.927 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:41:46.928 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:41:46.991 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:41:46.991 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:41:46.992 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 64.0995ms
+2024-08-18 18:41:46.992 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:41:46.992 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 66.7764ms
+2024-08-18 18:41:47.976 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:41:47.976 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:41:47.977 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:41:47.977 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:41:47.989 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:41:47.991 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:41:47.992 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 15.4536ms
+2024-08-18 18:41:47.993 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:41:47.993 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 16.8802ms
+2024-08-18 18:42:57.618 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:42:57.618 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:42:57.620 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:42:57.624 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:42:57.667 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:42:57.667 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:42:57.669 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 43.9152ms
+2024-08-18 18:42:57.670 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:42:57.670 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 51.7837ms
+2024-08-18 18:43:02.597 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:43:02.598 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:43:02.598 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:43:02.598 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:43:02.611 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:43:02.613 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:43:02.614 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 16.6537ms
+2024-08-18 18:43:02.615 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:43:02.615 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 17.3596ms
+2024-08-18 18:43:03.500 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:43:03.500 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:43:03.500 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:43:03.500 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:43:03.515 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:43:03.517 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:43:03.517 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 17.2999ms
+2024-08-18 18:43:03.518 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:43:03.518 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 18.3232ms
+2024-08-18 18:43:41.405 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:43:41.407 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:43:41.407 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:43:41.407 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:43:41.486 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:43:41.489 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:43:41.490 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 81.9768ms
+2024-08-18 18:43:41.491 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:43:41.492 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 86.5950ms
+2024-08-18 18:46:45.761 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:46:45.764 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:46:45.769 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:46:45.769 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:46:45.810 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:46:45.811 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:46:45.811 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 41.3716ms
+2024-08-18 18:46:45.811 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:46:45.811 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 50.2727ms
+2024-08-18 18:46:51.054 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:46:51.055 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:46:51.055 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:46:51.055 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:46:51.086 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:46:51.087 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:46:51.087 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 31.7768ms
+2024-08-18 18:46:51.087 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:46:51.087 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 95.1426ms
+2024-08-18 18:46:56.311 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:46:56.311 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:46:56.311 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:46:56.311 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:46:56.331 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:46:56.332 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:46:56.333 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 21.0925ms
+2024-08-18 18:46:56.333 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:46:56.333 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 22.1698ms
+2024-08-18 18:47:54.709 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:47:54.710 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:47:54.710 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:47:54.743 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:47:54.785 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:47:54.785 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:47:54.787 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 43.8373ms
+2024-08-18 18:47:54.787 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:47:54.801 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 80.2021ms
+2024-08-18 18:48:15.056 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:48:15.057 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:48:15.057 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:15.057 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:48:15.071 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:48:15.072 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:48:15.074 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 17.3872ms
+2024-08-18 18:48:15.075 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:15.075 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 18.8592ms
+2024-08-18 18:48:16.211 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:48:16.211 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:48:16.211 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:16.211 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:48:16.213 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:48:16.214 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:48:16.221 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 9.6672ms
+2024-08-18 18:48:16.221 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:16.222 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 11.5859ms
+2024-08-18 18:48:26.243 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:48:26.244 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:48:26.244 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:26.244 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:48:26.254 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:48:26.255 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:48:26.257 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 12.5604ms
+2024-08-18 18:48:26.257 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:26.257 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 13.8819ms
+2024-08-18 18:48:27.923 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:48:27.923 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:48:27.923 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:27.923 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:48:27.929 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:48:27.929 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:48:27.930 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 6.7057ms
+2024-08-18 18:48:27.930 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:27.930 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 7.3567ms
+2024-08-18 18:48:41.731 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:48:41.732 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:48:41.732 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:41.732 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:48:41.746 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:48:41.748 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:48:41.752 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 19.8349ms
+2024-08-18 18:48:41.752 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:48:41.752 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 21.9555ms
+2024-08-18 18:50:00.565 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:50:00.567 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:50:00.567 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:50:00.567 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:50:00.589 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:50:00.598 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:50:00.601 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 33.8693ms
+2024-08-18 18:50:00.601 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:50:00.603 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 37.9219ms
+2024-08-18 18:50:25.588 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:50:25.589 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:50:25.591 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:50:25.591 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:50:25.626 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:50:25.630 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:50:25.630 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 39.6168ms
+2024-08-18 18:50:25.631 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:50:25.631 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 42.8978ms
+2024-08-18 18:50:26.485 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-18 18:50:26.485 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:50:26.485 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:50:26.485 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:50:26.498 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-18 18:50:26.501 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:50:26.511 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 25.1997ms
+2024-08-18 18:50:26.511 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-18 18:50:26.511 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 26.1198ms
+2024-08-18 18:50:27.158 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-18 18:50:27.159 +03:00 [INF] CORS policy execution successful.
+2024-08-18 18:50:27.159 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:50:27.159 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-18 18:50:27.179 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-18 18:50:27.180 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-18 18:50:27.180 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 20.7967ms
+2024-08-18 18:50:27.180 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-18 18:50:27.180 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 22.8835ms

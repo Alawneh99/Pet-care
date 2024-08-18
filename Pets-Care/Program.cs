@@ -100,6 +100,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Add authorization
 builder.Services.AddAuthorization();
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name: "default", builder =>
+    {
+        builder
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -124,6 +134,8 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 app.UseAuthorization();
+
+app.UseCors("default");
 
 app.MapControllers();
 

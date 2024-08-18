@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetsCareCore.Context;
 
@@ -10,9 +11,11 @@ using PetsCareCore.Context;
 namespace PetsCareCore.Migrations
 {
     [DbContext(typeof(PetCareDbcontext))]
-    partial class PetCareDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20240807160646_tenth")]
+    partial class tenth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -391,7 +394,7 @@ namespace PetsCareCore.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
 
-                    b.Property<int>("UserRoleID")
+                    b.Property<int?>("UserRoleID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -527,8 +530,7 @@ namespace PetsCareCore.Migrations
                     b.HasOne("PetsCareCore.Models.Entities.UserRole", null)
                         .WithMany()
                         .HasForeignKey("UserRoleID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 #pragma warning restore 612, 618
         }

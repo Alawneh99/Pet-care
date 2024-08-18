@@ -111,14 +111,14 @@ namespace PetsCareInfra.Services
                 Trace.WriteLine(ex.ToString());
             }
         }
-        public async Task<string> SignIn(LoginDTO loginDTO)
+        public async Task<(string token, int userId)> SignIn(LoginDTO loginDTO)
         {
             // Fetch the user by email
             var user = await _userRepository.GetUserByEmail(loginDTO.Email);
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginDTO.Password, user.PasswordHash))
             {
                 // Return null or appropriate message if authentication fails
-                return null; // Incorrect credentials
+                return (null,0); // Incorrect credentials
             }
 
             // Fetch user role based on UserRoleID assumed to be part of the User entity
@@ -126,7 +126,7 @@ namespace PetsCareInfra.Services
             if (userRole == null)
             {
                 // Return null or appropriate error message if no role found
-                return null; // Role information is mandatory
+                return (null,0); // Role information is mandatory
             }
 
             // Retrieve secret key from configuration
@@ -134,7 +134,7 @@ namespace PetsCareInfra.Services
 
             // Generate JWT token with email and role
             var token = TokenHelper.GenerateJwtToken(user.Email, userRole.RoleName, secret);
-            return token;
+            return (token, user.Id);
 
         }
         public async Task<bool> SignOut(int userId)

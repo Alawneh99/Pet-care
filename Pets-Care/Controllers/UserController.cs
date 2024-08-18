@@ -61,13 +61,8 @@ namespace Pets_Care.Controllers
         /// <response code="400">If the user data is null.</response>
         /// <response code="500">If there is an internal server error.</response>
         [HttpPost("user")]
-        public async Task<IActionResult> CreateUser([FromBody] CreateUserDTO createUserDTO)
+        public async Task<IActionResult> CreateUser([FromForm] CreateUserDTO createUserDTO)
         {
-            if (createUserDTO == null)
-            {
-                return BadRequest("User data is null.");
-            }
-
             try
             {
                 var user = await _userService.CreateUser(createUserDTO);
@@ -78,6 +73,7 @@ namespace Pets_Care.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
 
         /// <summary>
         /// Retrieves all users.
@@ -699,13 +695,14 @@ namespace Pets_Care.Controllers
 
             try
             {
-                var token = await _loginService.SignIn(loginDTO);
+                var (token, userId) = await _loginService.SignIn(loginDTO);
                 if (string.IsNullOrEmpty(token))
                 {
                     return Unauthorized("Invalid username or password.");
                 }
 
-                return Ok(new { Token = token });
+                // Return the token and userId in the response
+                return Ok(new { Token = token, UserId = userId });
             }
             catch (Exception ex)
             {
@@ -728,14 +725,14 @@ namespace Pets_Care.Controllers
                 var result = await _loginService.SignOut(userId);
                 if (!result)
                 {
-                    return NotFound("User not found or not logged in.");
+                    return NotFound(new { message = "User not found or not logged in." });
                 }
 
-                return Ok("Sign-out successful.");
+                return Ok(new { message = "Sign-out successful." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, new { message = $"Internal server error: {ex.Message}" });
             }
         }
 
@@ -1120,11 +1117,12 @@ namespace Pets_Care.Controllers
             var result = await _loginService.RecoverPassword(recoverPasswordDTO);
             if (!result)
             {
-                return NotFound("Email not found.");
+                return NotFound(new { message = "Email not found." }); // Return structured JSON
             }
 
-            return Ok("Password reset link has been sent to your email.");
+            return Ok(new { message = "Password reset link has been sent to your email." }); // Return structured JSON
         }
+
 
         /// <summary>
         /// Resets the user's password using the provided token.
@@ -1140,12 +1138,13 @@ namespace Pets_Care.Controllers
 
             if (result)
             {
-                return Ok("Password has been reset successfully.");
+                return Ok(new { message = "Password has been reset successfully." }); // Return structured JSON
             }
             else
             {
-                return BadRequest("Invalid or expired token.");
+                return BadRequest(new { message = "Invalid or expired token." }); // Return structured JSON
             }
         }
+
     }
 }

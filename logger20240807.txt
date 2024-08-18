@@ -1,0 +1,474 @@
+2024-08-07 14:37:38.187 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-07 14:37:38.542 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-07 14:37:38.542 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-07 14:37:38.543 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-07 14:37:38.543 +03:00 [INF] Hosting environment: Development
+2024-08-07 14:37:38.543 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-07 14:37:40.732 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-07 14:37:41.107 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-07 14:37:41.107 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 379.1827ms
+2024-08-07 14:37:41.119 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-07 14:37:41.130 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 23.3157ms
+2024-08-07 14:37:41.203 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 90.3673ms
+2024-08-07 14:37:41.269 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-07 14:37:41.487 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 217.8255ms
+2024-08-07 14:43:03.698 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-07 14:43:03.726 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 14:43:03.746 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 14:43:05.320 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-07 14:43:05.360 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'PetsCareCore.Context.PetCareDbcontext'.
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method24(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method24(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2024-08-07 14:43:05.695 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 1943.6091ms
+2024-08-07 14:43:05.699 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 14:43:05.707 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method24(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at PetsCareInfra.Repos.PetRepos.GetAllPets() in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Repos\PetRepos.cs:line 40
+   at PetsCareInfra.Services.PetService.GetAllPets() in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\PetService.cs:line 56
+   at Pets_Care.Controllers.UserController.GetAllPets() in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 776
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-07 14:43:05.755 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 500 - text/plain;+charset=utf-8 2057.0890ms
+2024-08-07 15:23:04.600 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/items - -
+2024-08-07 15:23:04.622 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-07 15:23:04.627 +03:00 [INF] Route matched with {action = "GetAllItems", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllItems() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 15:23:04.793 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `i`.`Id`, `i`.`CategoryID`, `i`.`Description`, `i`.`DiscountAmount`, `i`.`DiscountType`, `i`.`Image`, `i`.`IsHaveDiscount`, `i`.`Name`, `i`.`OrderId`, `i`.`Price`, `i`.`Quantity`
+FROM `Items` AS `i`
+2024-08-07 15:23:04.865 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Item, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Item.UpdateItemDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-07 15:23:04.893 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllItems (Pets-Care) in 265.1417ms
+2024-08-07 15:23:04.893 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllItems (Pets-Care)'
+2024-08-07 15:23:04.893 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/items - - - 200 - application/json;+charset=utf-8 293.7655ms
+2024-08-07 15:24:51.636 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 47
+2024-08-07 15:24:51.650 +03:00 [INF] CORS policy execution successful.
+2024-08-07 15:24:51.652 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:24:51.662 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 15:24:52.134 +03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 15:24:52.519 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-08-07 15:24:52.520 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 857.8831ms
+2024-08-07 15:24:52.520 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:24:52.520 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 47 - 401 - text/plain;+charset=utf-8 884.8202ms
+2024-08-07 15:27:00.742 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 67
+2024-08-07 15:27:00.746 +03:00 [INF] CORS policy execution successful.
+2024-08-07 15:27:00.746 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:27:00.747 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 15:27:00.776 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 15:27:01.229 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-08-07 15:27:01.230 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 483.1334ms
+2024-08-07 15:27:01.230 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:27:01.230 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 67 - 401 - text/plain;+charset=utf-8 488.2592ms
+2024-08-07 15:28:02.629 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 106
+2024-08-07 15:28:02.629 +03:00 [INF] CORS policy execution successful.
+2024-08-07 15:28:02.630 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:28:02.630 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 15:28:02.697 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 15:28:02.924 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-08-07 15:28:02.924 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 293.3295ms
+2024-08-07 15:28:02.924 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:28:02.925 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 106 - 401 - text/plain;+charset=utf-8 296.4484ms
+2024-08-07 15:38:35.101 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 106
+2024-08-07 15:38:35.134 +03:00 [INF] CORS policy execution successful.
+2024-08-07 15:38:35.135 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:38:35.136 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 15:38:45.278 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 15:39:20.748 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-08-07 15:39:20.748 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 45611.6821ms
+2024-08-07 15:39:20.748 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:39:20.749 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 106 - 401 - text/plain;+charset=utf-8 45647.9055ms
+2024-08-07 15:41:36.601 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 106
+2024-08-07 15:41:36.625 +03:00 [INF] CORS policy execution successful.
+2024-08-07 15:41:36.625 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:41:36.626 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 15:41:39.595 +03:00 [INF] Executed DbCommand (34ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 15:41:43.204 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-08-07 15:41:43.204 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 6578.3407ms
+2024-08-07 15:41:43.204 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 15:41:43.204 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 106 - 401 - text/plain;+charset=utf-8 6602.9712ms
+2024-08-07 16:14:02.270 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/user application/json 207
+2024-08-07 16:14:02.274 +03:00 [INF] CORS policy execution successful.
+2024-08-07 16:14:02.274 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-07 16:14:02.285 +03:00 [INF] Route matched with {action = "CreateUser", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(PetsCareCore.DTOs.User.CreateUserDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 16:14:02.784 +03:00 [ERR] Failed executing DbCommand (42ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `Users` (`BirthDate`, `Email`, `FirstName`, `LastName`, `PasswordHash`, `Phone`, `ProfileImage`, `ResetPasswordExpiry`, `ResetPasswordToken`, `UserRoleID`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+SELECT `Id`
+FROM `Users`
+WHERE ROW_COUNT() = 1 AND `Id` = LAST_INSERT_ID();
+2024-08-07 16:14:02.814 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'PetsCareCore.Context.PetCareDbcontext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: Could not save changes. Please configure your entity type accordingly.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`pet-care`.`users`, CONSTRAINT `FK_Users_Roles_UserRoleID` FOREIGN KEY (`UserRoleID`) REFERENCES `roles` (`Id`) ON DELETE SET NULL)
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(Boolean execAsync)
+   at MySql.Data.MySqlClient.NativeDriver.GetResultAsync(Int32 affectedRow, Int64 insertedId, Boolean execAsync)
+   at MySql.Data.MySqlClient.Driver.GetResultAsync(Int32 statementId, Int32 affectedRows, Int64 insertedId, Boolean execAsync)
+   at MySql.Data.MySqlClient.Driver.NextResultAsync(Int32 statementId, Boolean force, Boolean execAsync)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MySql.EntityFrameworkCore.Update.MySQLModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: Could not save changes. Please configure your entity type accordingly.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`pet-care`.`users`, CONSTRAINT `FK_Users_Roles_UserRoleID` FOREIGN KEY (`UserRoleID`) REFERENCES `roles` (`Id`) ON DELETE SET NULL)
+   at MySql.Data.MySqlClient.MySqlStream.ReadPacketAsync(Boolean execAsync)
+   at MySql.Data.MySqlClient.NativeDriver.GetResultAsync(Int32 affectedRow, Int64 insertedId, Boolean execAsync)
+   at MySql.Data.MySqlClient.Driver.GetResultAsync(Int32 statementId, Int32 affectedRows, Int64 insertedId, Boolean execAsync)
+   at MySql.Data.MySqlClient.Driver.NextResultAsync(Int32 statementId, Boolean force, Boolean execAsync)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResultAsync(Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, Boolean execAsync, CancellationToken cancellationToken)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MySql.EntityFrameworkCore.Update.MySQLModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at MySql.EntityFrameworkCore.Storage.Internal.MySQLExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-08-07 16:14:03.295 +03:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-08-07 16:14:03.295 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.CreateUser (Pets-Care) in 1010.3514ms
+2024-08-07 16:14:03.295 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.CreateUser (Pets-Care)'
+2024-08-07 16:14:03.296 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/user application/json 207 - 500 - text/plain;+charset=utf-8 1026.2049ms
+2024-08-07 16:15:36.694 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 23
+2024-08-07 16:15:36.695 +03:00 [INF] CORS policy execution successful.
+2024-08-07 16:15:36.695 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-08-07 16:15:36.720 +03:00 [INF] Route matched with {action = "ForgotPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ForgotPassword(PetsCareCore.DTOs.Login.RecoverPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 16:15:36.750 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 16:15:36.782 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 100), @p4='?' (Size = 200), @p5='?' (Size = 15), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime), @p8='?' (Size = 200), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Users` SET `BirthDate` = @p0, `Email` = @p1, `FirstName` = @p2, `LastName` = @p3, `PasswordHash` = @p4, `Phone` = @p5, `ProfileImage` = @p6, `ResetPasswordExpiry` = @p7, `ResetPasswordToken` = @p8, `UserRoleID` = @p9
+WHERE `Id` = @p10;
+2024-08-07 16:15:37.007 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-08-07 16:15:37.007 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care) in 286.7812ms
+2024-08-07 16:15:37.007 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ForgotPassword (Pets-Care)'
+2024-08-07 16:15:37.008 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ForgotPassword application/json 23 - 200 - text/plain;+charset=utf-8 313.5871ms
+2024-08-07 16:16:47.163 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/ResetPassword application/json 71
+2024-08-07 16:16:47.165 +03:00 [INF] CORS policy execution successful.
+2024-08-07 16:16:47.165 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.ResetPassword (Pets-Care)'
+2024-08-07 16:16:47.180 +03:00 [INF] Route matched with {action = "ResetPassword", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ResetPassword(PetsCareCore.DTOs.Login.ResetPasswordDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 16:16:47.203 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 16:16:47.212 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-08-07 16:16:47.212 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.ResetPassword (Pets-Care) in 32.4208ms
+2024-08-07 16:16:47.212 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.ResetPassword (Pets-Care)'
+2024-08-07 16:16:47.213 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/ResetPassword application/json 71 - 400 - text/plain;+charset=utf-8 49.1177ms
+2024-08-07 16:38:58.012 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-07 16:38:58.357 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-07 16:38:58.357 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-07 16:38:58.359 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-07 16:38:58.359 +03:00 [INF] Hosting environment: Development
+2024-08-07 16:38:58.359 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-07 16:39:00.446 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-07 16:39:01.059 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 614.6420ms
+2024-08-07 16:39:01.119 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-07 16:39:01.119 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-07 16:39:01.141 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 21.9204ms
+2024-08-07 16:39:01.216 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 96.7900ms
+2024-08-07 16:39:01.312 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-07 16:39:01.790 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 477.9094ms
+2024-08-07 16:39:45.235 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 102
+2024-08-07 16:39:45.298 +03:00 [INF] CORS policy execution successful.
+2024-08-07 16:39:45.303 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 16:39:45.348 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 16:39:53.375 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 16:47:26.216 +03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-08-07 16:47:26.229 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 460870.5655ms
+2024-08-07 16:47:26.231 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 16:47:26.245 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 102 - 401 - text/plain;+charset=utf-8 461010.6715ms
+2024-08-07 18:33:06.720 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 51
+2024-08-07 18:33:06.738 +03:00 [INF] CORS policy execution successful.
+2024-08-07 18:33:06.738 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 18:33:06.739 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 18:33:22.965 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-07 18:33:23.407 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`RoleName`
+FROM `Roles` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-08-07 18:33:29.179 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-07 18:33:29.225 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 22486.4943ms
+2024-08-07 18:33:29.226 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-07 18:33:29.226 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 51 - 200 - application/json;+charset=utf-8 22506.4948ms
+2024-08-07 18:44:33.586 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-07 18:44:33.596 +03:00 [INF] CORS policy execution successful.
+2024-08-07 18:44:33.597 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 18:44:33.648 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 18:44:33.909 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-07 18:44:33.959 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'PetsCareCore.Context.PetCareDbcontext'.
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method134(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method134(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2024-08-07 18:44:34.219 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 571.3994ms
+2024-08-07 18:44:34.220 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 18:44:34.224 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method134(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at PetsCareInfra.Repos.PetRepos.GetAllPets() in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Repos\PetRepos.cs:line 40
+   at PetsCareInfra.Services.PetService.GetAllPets() in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\PetService.cs:line 56
+   at Pets_Care.Controllers.UserController.GetAllPets() in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 776
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-07 18:44:34.271 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 500 - text/plain;+charset=utf-8 685.4701ms
+2024-08-07 18:44:55.145 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-07 18:44:55.148 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 18:44:55.149 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 18:44:55.160 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-07 18:44:55.161 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'PetsCareCore.Context.PetCareDbcontext'.
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method134(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method134(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2024-08-07 18:44:55.395 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 246.1136ms
+2024-08-07 18:44:55.396 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 18:44:55.398 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method134(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at PetsCareInfra.Repos.PetRepos.GetAllPets() in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Repos\PetRepos.cs:line 40
+   at PetsCareInfra.Services.PetService.GetAllPets() in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\PetService.cs:line 56
+   at Pets_Care.Controllers.UserController.GetAllPets() in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 776
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-07 18:44:55.403 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 500 - text/plain;+charset=utf-8 257.2908ms
+2024-08-07 18:49:31.558 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-07 18:49:31.739 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-07 18:49:31.739 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-07 18:49:31.740 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-07 18:49:31.740 +03:00 [INF] Hosting environment: Development
+2024-08-07 18:49:31.740 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-07 18:49:35.347 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-07 18:49:35.633 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 287.9741ms
+2024-08-07 18:49:35.642 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-07 18:49:35.642 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-07 18:49:35.647 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 5.1738ms
+2024-08-07 18:49:35.675 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 33.1107ms
+2024-08-07 18:49:35.704 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-07 18:49:35.795 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 91.1827ms
+2024-08-07 18:49:48.307 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-07 18:49:48.327 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 18:49:48.371 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 18:49:50.769 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-07 18:49:50.846 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'PetsCareCore.Context.PetCareDbcontext'.
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method24(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method24(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2024-08-07 18:49:51.126 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 2748.1062ms
+2024-08-07 18:49:51.128 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 18:49:51.134 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+   at System.Data.Common.DbDataReader.GetFieldValue[T](Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue[T](Int32 ordinal)
+   at lambda_method24(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at PetsCareInfra.Repos.PetRepos.GetAllPets() in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Repos\PetRepos.cs:line 40
+   at PetsCareInfra.Services.PetService.GetAllPets() in C:\Users\user\source\repos\Pets-Care\PetsCareInfra\Services\PetService.cs:line 56
+   at Pets_Care.Controllers.UserController.GetAllPets() in C:\Users\user\source\repos\Pets-Care\Pets-Care\Controllers\UserController.cs:line 776
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-08-07 18:49:51.167 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 500 - text/plain;+charset=utf-8 2860.6141ms
+2024-08-07 19:06:58.840 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='Pet-Care' AND TABLE_NAME='__EFMigrationsHistory';
+2024-08-07 19:06:58.859 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='Pet-Care' AND TABLE_NAME='__EFMigrationsHistory';
+2024-08-07 19:06:58.884 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2024-08-07 19:06:58.892 +03:00 [INF] Applying migration '20240807160646_tenth'.
+2024-08-07 19:06:59.024 +03:00 [INF] Executed DbCommand (105ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE `Pets` MODIFY `BirthDate` datetime(6) NOT NULL;
+2024-08-07 19:06:59.029 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240807160646_tenth', '7.0.19');
+2024-08-07 19:07:05.222 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-07 19:07:05.379 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-07 19:07:05.380 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-07 19:07:05.381 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-07 19:07:05.381 +03:00 [INF] Hosting environment: Development
+2024-08-07 19:07:05.381 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-07 19:07:07.579 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-07 19:07:08.205 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 629.0575ms
+2024-08-07 19:07:08.218 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-07 19:07:08.218 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-07 19:07:08.227 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 8.7505ms
+2024-08-07 19:07:08.268 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.9041ms
+2024-08-07 19:07:08.306 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-07 19:07:08.461 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 154.6038ms
+2024-08-07 19:07:29.026 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-07 19:07:29.055 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 19:07:29.096 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 19:07:31.584 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-07 19:07:31.711 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-07 19:07:31.753 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 2650.1318ms
+2024-08-07 19:07:31.754 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 19:07:31.768 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 2742.3331ms
+2024-08-07 19:07:37.796 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/pets - -
+2024-08-07 19:07:37.805 +03:00 [INF] CORS policy execution successful.
+2024-08-07 19:07:37.806 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 19:07:37.807 +03:00 [INF] Route matched with {action = "GetAllPets", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllPets() on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-07 19:07:37.845 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `p`.`Id`, `p`.`Age`, `p`.`BirthDate`, `p`.`Gender`, `p`.`Image`, `p`.`NickName`, `p`.`OwnerUserId`, `p`.`PetType`
+FROM `Pets` AS `p`
+2024-08-07 19:07:37.848 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[PetsCareCore.Models.Entities.Pet, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[PetsCareCore.DTOs.Pet.UpdatePetDTO, PetsCareCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-08-07 19:07:37.853 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.GetAllPets (Pets-Care) in 46.0817ms
+2024-08-07 19:07:37.853 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.GetAllPets (Pets-Care)'
+2024-08-07 19:07:37.854 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/pets - - - 200 - application/json;+charset=utf-8 57.4913ms

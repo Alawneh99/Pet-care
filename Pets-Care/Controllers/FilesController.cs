@@ -18,20 +18,27 @@ namespace Pets_Care.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<string> UploadImageAndGetURL(IFormFile file)
+        public async Task<IActionResult> UploadImageAndGetURL(IFormFile file)
         {
             string uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Images");
             if (file == null || file.Length == 0)
             {
-                throw new Exception("Please Enter Valid File");
+                return BadRequest("Please Enter Valid File");
             }
-            string newFileURL = DateTime.Now.ToString() + "" + file.FileName;
-            string newFileURL2 = Guid.NewGuid().ToString() + "" + file.FileName;
-            using (var inputFile = new FileStream(Path.Combine(uploadFolder, newFileURL2), FileMode.Create))
+            string newFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            string newFilePath = Path.Combine(uploadFolder, newFileName);
+
+            using (var inputFile = new FileStream(newFilePath, FileMode.Create))
             {
                 await file.CopyToAsync(inputFile);
             }
-            return newFileURL2;
+
+            string baseUrl = $"{Request.Scheme}://{Request.Host}{Request.PathBase}";
+            string fileUrl = $"{baseUrl}/Images/{newFileName}";
+
+            return Ok(fileUrl);  // Return the URL as a plain text response
         }
+
+
     }
 }

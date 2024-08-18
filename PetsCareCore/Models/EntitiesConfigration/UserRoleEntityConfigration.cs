@@ -21,7 +21,7 @@ namespace PetsCareCore.Models.EntitiesConfigration
             builder.HasMany<User>()
                    .WithOne()
                    .HasForeignKey(c => c.UserRoleID)
-                   .OnDelete(DeleteBehavior.SetNull);
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

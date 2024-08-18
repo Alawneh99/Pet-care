@@ -1,0 +1,64 @@
+2024-08-11 13:19:17.211 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-11 13:19:17.512 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-11 13:19:17.513 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-11 13:19:17.514 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-11 13:19:17.514 +03:00 [INF] Hosting environment: Development
+2024-08-11 13:19:17.514 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-11 13:19:19.721 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-11 13:19:20.204 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-11 13:19:20.204 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-11 13:19:20.205 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 485.1248ms
+2024-08-11 13:19:20.230 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 26.7109ms
+2024-08-11 13:19:20.280 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 76.5362ms
+2024-08-11 13:19:20.315 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-11 13:19:20.488 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 172.4285ms
+2024-08-11 13:19:30.941 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-11 13:19:30.956 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-11 13:19:30.958 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-11 13:19:30.958 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 17.1218ms
+2024-08-11 13:29:34.278 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-11 13:29:34.505 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-11 13:29:34.506 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-11 13:29:34.507 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-11 13:29:34.507 +03:00 [INF] Hosting environment: Development
+2024-08-11 13:29:34.507 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-11 13:29:37.276 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-11 13:29:37.719 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 446.8458ms
+2024-08-11 13:29:37.741 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-11 13:29:37.745 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 4.2065ms
+2024-08-11 13:29:37.756 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-11 13:29:37.809 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.2388ms
+2024-08-11 13:29:37.906 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-11 13:29:38.072 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 166.6103ms
+2024-08-11 13:30:32.368 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7156/api/User/login application/json 59
+2024-08-11 13:30:32.415 +03:00 [INF] CORS policy execution successful.
+2024-08-11 13:30:32.424 +03:00 [INF] Executing endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-11 13:30:32.459 +03:00 [INF] Route matched with {action = "SignIn", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignIn(PetsCareCore.DTOs.Login.LoginDTO) on controller Pets_Care.Controllers.UserController (Pets-Care).
+2024-08-11 13:30:42.725 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[@__email_0='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`BirthDate`, `u`.`Email`, `u`.`FirstName`, `u`.`LastName`, `u`.`PasswordHash`, `u`.`Phone`, `u`.`ProfileImage`, `u`.`ResetPasswordExpiry`, `u`.`ResetPasswordToken`, `u`.`UserRoleID`
+FROM `Users` AS `u`
+WHERE `u`.`Email` = @__email_0
+LIMIT 1
+2024-08-11 13:30:43.446 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`RoleName`
+FROM `Roles` AS `r`
+WHERE `r`.`Id` = @__p_0
+LIMIT 1
+2024-08-11 13:30:43.577 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `l`.`Id`, `l`.`IsLoggedIn`, `l`.`LastLoginTime`, `l`.`Password`, `l`.`UserId`, `l`.`UserName`
+FROM `Logins` AS `l`
+WHERE `l`.`UserId` = @__userId_0
+LIMIT 1
+2024-08-11 13:30:43.759 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = SByte), @p1='?' (DbType = DateTime), @p2='?' (Size = 200), @p3='?' (DbType = Int32), @p4='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+UPDATE `Logins` SET `IsLoggedIn` = @p0, `LastLoginTime` = @p1, `Password` = @p2, `UserId` = @p3, `UserName` = @p4
+WHERE `Id` = @p5;
+2024-08-11 13:30:50.816 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-11 13:30:50.882 +03:00 [INF] Executed action Pets_Care.Controllers.UserController.SignIn (Pets-Care) in 18417.1489ms
+2024-08-11 13:30:50.883 +03:00 [INF] Executed endpoint 'Pets_Care.Controllers.UserController.SignIn (Pets-Care)'
+2024-08-11 13:30:50.900 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7156/api/User/login application/json 59 - 200 - application/json;+charset=utf-8 18531.9654ms
+2024-08-11 13:31:36.897 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/api/User/users - -
+2024-08-11 13:31:36.924 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-11 13:31:36.930 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-11 13:31:36.930 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/api/User/users - - - 401 0 - 33.2639ms

@@ -1,0 +1,54 @@
+2024-08-06 20:10:53.934 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-06 20:10:54.611 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-06 20:10:54.611 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-06 20:10:54.614 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-06 20:10:54.615 +03:00 [INF] Hosting environment: Development
+2024-08-06 20:10:54.615 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-06 20:10:56.661 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-06 20:10:57.449 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/swagger-ui.css - -
+2024-08-06 20:10:57.449 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/swagger-ui-bundle.js - -
+2024-08-06 20:10:57.449 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 794.7177ms
+2024-08-06 20:10:57.449 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/swagger-ui-standalone-preset.js - -
+2024-08-06 20:10:57.461 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-06 20:10:57.461 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-06 20:10:57.505 +03:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2024-08-06 20:10:57.515 +03:00 [INF] The file /swagger-ui.css was not modified
+2024-08-06 20:10:57.517 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/swagger-ui.css - - - 304 - text/css 67.7381ms
+2024-08-06 20:10:57.531 +03:00 [INF] The file /swagger-ui-bundle.js was not modified
+2024-08-06 20:10:57.532 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/swagger-ui-bundle.js - - - 304 - text/javascript 83.1918ms
+2024-08-06 20:10:57.532 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/swagger-ui-standalone-preset.js - - - 304 - text/javascript 83.5352ms
+2024-08-06 20:10:57.564 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 102.6212ms
+2024-08-06 20:10:57.711 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 250.7832ms
+2024-08-06 20:10:57.848 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-06 20:10:57.870 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/favicon-32x32.png - -
+2024-08-06 20:10:57.871 +03:00 [INF] The file /favicon-32x32.png was not modified
+2024-08-06 20:10:57.871 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/favicon-32x32.png - - - 304 - image/png 0.9749ms
+2024-08-06 20:10:58.188 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 339.4565ms
+2024-08-06 20:13:38.145 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-06 20:13:38.382 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-06 20:13:38.385 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-06 20:13:38.389 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-06 20:13:38.389 +03:00 [INF] Hosting environment: Development
+2024-08-06 20:13:38.389 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-06 20:13:39.343 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-06 20:13:40.037 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 701.9373ms
+2024-08-06 20:13:40.121 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-06 20:13:40.121 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-06 20:13:40.139 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 17.7206ms
+2024-08-06 20:13:40.223 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 102.1515ms
+2024-08-06 20:13:40.466 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-06 20:13:40.721 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 255.5428ms
+2024-08-06 20:18:19.618 +03:00 [INF] User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-06 20:18:19.986 +03:00 [INF] Now listening on: https://localhost:7156
+2024-08-06 20:18:19.996 +03:00 [INF] Now listening on: http://localhost:5299
+2024-08-06 20:18:20.000 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-06 20:18:20.001 +03:00 [INF] Hosting environment: Development
+2024-08-06 20:18:20.001 +03:00 [INF] Content root path: C:\Users\user\source\repos\Pets-Care\Pets-Care
+2024-08-06 20:18:20.895 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/index.html - -
+2024-08-06 20:18:21.466 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_vs/browserLink - -
+2024-08-06 20:18:21.466 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - -
+2024-08-06 20:18:21.466 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/index.html - - - 200 - text/html;charset=utf-8 570.3877ms
+2024-08-06 20:18:21.495 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 29.5254ms
+2024-08-06 20:18:21.562 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 96.7592ms
+2024-08-06 20:18:21.670 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - -
+2024-08-06 20:18:22.044 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7156/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 373.9101ms
