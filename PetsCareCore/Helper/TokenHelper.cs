@@ -20,7 +20,7 @@ namespace PetsCareCore.Helper
                 Subject = new ClaimsIdentity(new Claim[]
                 {
             new Claim(ClaimTypes.Email, email),
-            new Claim(ClaimTypes.Role, role) // Add role as a claim
+            new Claim(ClaimTypes.Role, role) 
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -28,32 +28,6 @@ namespace PetsCareCore.Helper
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
-        }
-
-
-        public static bool IsValidToken(string token, string secret)
-        {
-            if (string.IsNullOrWhiteSpace(token)) return false;
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(secret);
-            try
-            {
-                tokenHandler.ValidateToken(token, new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    ClockSkew = TimeSpan.Zero
-                }, out SecurityToken validatedToken);
-
-                return validatedToken.ValidTo > DateTime.UtcNow;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

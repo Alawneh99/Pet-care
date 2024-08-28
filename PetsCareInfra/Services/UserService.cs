@@ -29,7 +29,7 @@ namespace PetsCareInfra.Services
         {
             try
             {
-                // Create a new User entity from the DTO
+                
                 var user = new User
                 {
                     FirstName = createUserDTO.FirstName,
@@ -42,27 +42,27 @@ namespace PetsCareInfra.Services
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword(createUserDTO.Password)
                 };
 
-                // Add the new User to the database
+                
                 var createdUser = await _userRepository.CreateUser(user);
 
-                // Proceed with creating a Login only if the User was successfully created
+                
                 if (createdUser != null)
                 {
-                    // Create a Login object for the new user
+                    
                     var login = new Login
                     {
-                        UserName = createdUser.Email, // Using email as username
-                        Password = user.PasswordHash, // Use the hashed password from user entity
-                        UserId = createdUser.Id, // Associate with the created user's ID
+                        UserName = createdUser.Email, 
+                        Password = user.PasswordHash, 
+                        UserId = createdUser.Id, 
                         IsLoggedIn = false,
-                        LastLoginTime = DateTime.Now // Set the last login time to the current time
+                        LastLoginTime = DateTime.Now 
                     };
 
-                    // Save the Login object to the database
+                    
                     await _loginRepository.CreateLogin(login);
                 }
 
-                // Return the created user's data back as a DTO
+                
                 return new CreateUserDTO
                 {
                     FirstName = createdUser.FirstName,
@@ -76,7 +76,7 @@ namespace PetsCareInfra.Services
             }
             catch (Exception ex)
             {
-                // Throw a new exception with a user-friendly message
+                
                 throw new Exception("An error occurred while creating the user. Please try again later.", ex);
             }
         }

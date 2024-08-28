@@ -40,59 +40,59 @@ namespace PetsCareInfra.Services
             var token = Guid.NewGuid().ToString();
             await _userRepository.SetPasswordResetToken(user, token, DateTime.Now.AddHours(1));
 
-            SendOtpViaEmail(user.Email, token);
+            await SendOtpViaEmail(user.Email, token);
 
             return true;
         }
 
         public async Task<bool> ResetPassword(string email, string token, string newPassword)
         {
-            // Retrieve the user entity by email
+            
             var user = await _userRepository.GetUserByEmail(email);
             if (user == null || user.ResetPasswordToken != token || user.ResetPasswordExpiry < DateTime.Now)
             {
-                return false; // Invalid or expired token
+                return false; 
             }
 
-            // Update the hashed password in the user entity
+            
             user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
 
-            // Update the password in the login entity (plaintext)
+          
             var login = await _loginRepository.GetLoginByEmail(email);
             if (login == null)
             {
-                return false; // Handle scenario where login entity doesn't exist for the user
+                return false; 
             }
 
             login.Password = newPassword;
 
-            // Update both entities in the database
+            
             await _userRepository.UpdateUser(user);
             await _loginRepository.UpdateLogin(login);
 
-            // Clear reset password fields in the user entity
+            
             user.ResetPasswordToken = null;
             user.ResetPasswordExpiry = null;
             await _userRepository.UpdateUser(user);
 
-            return true; // Password reset successfully
+            return true; 
 
         }
 
         public async Task SendOtpViaEmail(string email, string code)
         {
-            // Create a new instance of MailMessage class
+            
             MailMessage message = new MailMessage();
 
-            // Set subject of the message, body and sender information
+            
             message.Subject = "Verification Code";
             message.Body = "Use this Following Code  \n " + code + "\nto Confirm Your Operation. Kindly remember it's valid for 4 minutes since now.";
-            message.From = new MailAddress("PetsCare8899@outlook.com", "Pets Care"); // Remove the third parameter
+            message.From = new MailAddress("PetsCare8899@outlook.com", "Pets Care"); 
 
-            // Add To recipients
-            message.To.Add(new MailAddress(email, "Recipient 1")); // Remove the third parameter
+            
+            message.To.Add(new MailAddress(email, "Recipient 1")); 
 
-            // Create an instance of SmtpClient class
+            
             SmtpClient client = new SmtpClient
             {
                 Host = "smtp.office365.com",
@@ -103,7 +103,7 @@ namespace PetsCareInfra.Services
 
             try
             {
-                // Send this email
+                
                  await client.SendMailAsync(message);
             }
             catch (Exception ex)
@@ -113,26 +113,26 @@ namespace PetsCareInfra.Services
         }
         public async Task<(string token, int userId)> SignIn(LoginDTO loginDTO)
         {
-            // Fetch the user by email
+            
             var user = await _userRepository.GetUserByEmail(loginDTO.Email);
             if (user == null || !BCrypt.Net.BCrypt.Verify(loginDTO.Password, user.PasswordHash))
             {
-                // Return null or appropriate message if authentication fails
-                return (null,0); // Incorrect credentials
+                
+                return (null,0);
             }
 
-            // Fetch user role based on UserRoleID assumed to be part of the User entity
+            
             var userRole = await _userRepository.GetUserRole(user.UserRoleID);
             if (userRole == null)
             {
-                // Return null or appropriate error message if no role found
-                return (null,0); // Role information is mandatory
+                
+                return (null,0); 
             }
 
-            // Retrieve secret key from configuration
+            
             var secret = _configuration.GetValue<string>("JwtConfig:Secret");
 
-            // Generate JWT token with email and role
+            
             var token = TokenHelper.GenerateJwtToken(user.Email, userRole.RoleName, secret);
             return (token, user.Id);
 

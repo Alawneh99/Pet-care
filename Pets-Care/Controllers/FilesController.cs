@@ -36,7 +36,7 @@ namespace Pets_Care.Controllers
             string baseUrl = $"{Request.Scheme}://{Request.Host}{Request.PathBase}";
             string fileUrl = $"{baseUrl}/Images/{newFileName}";
 
-            return Ok(fileUrl);  // Return the URL as a plain text response
+            return Ok(fileUrl);  
         }
 
 
